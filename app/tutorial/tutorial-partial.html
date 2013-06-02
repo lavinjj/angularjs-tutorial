@@ -1,0 +1,20 @@
+<div ng-controller="tutorial-controller">
+    <div>{{currentSlide.title}} slide {{currentPage + 1}} of {{slides.length + 1}}</div>
+    <div mark-down="markdown"></div>
+    <div class="clearfix">&nbsp;</div>
+    <div class="pagination pull-right">
+        <ul>
+            <li ng-class="{disabled: currentPage == 0}">
+                <a href ng-click="prevPage()">« Prev</a>
+            </li>
+            <li ng-repeat="n in range(slides.length)"
+                ng-class="{active: n == currentPage}"
+                ng-click="setPage()">
+                <a href ng-bind="n + 1">1</a>
+            </li>
+            <li ng-class="{disabled: currentPage == slides.length - 1}">
+                <a href ng-click="nextPage()">Next »</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div ng-controller="login-controller">
+    <div class="navbar-text pull-right" ng-show="isUserLoggedIn()">Welcome, {{currentUser.FirstName}}
+        {{currentUser.LastName}} <span gravatar-image data-email="currentUser.Email" data-size="40"></span>
+        <button class="btn" ng-click="logout()">Logout</button>
+    </div>
+    <form class="navbar-form pull-right" ng-hide="isUserLoggedIn()">
+        <input type="text" class="span2" placeholder="User Name" ng-model="login.userName">
+        <input type="password" class="span2" placeholder="Password" ng-model="login.password">
+        <button id="loginButton" class="btn" ng-click="login()">Login</button>
+        <button id="registerButton" class="btn" ng-click="register()">Register</button>
+    </form>
+</div>

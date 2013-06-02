@@ -1,0 +1,86 @@
+<div class="row-fluid" ng-controller="user-register-controller">
+    <form name="registerForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="UserName">User Name </label>
+
+            <div class="controls">
+                <input class="input-large" id="UserName" name="UserName" type="text" unique-Username required
+                       ng-model="User.UserName">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="FirstName">First Name </label>
+
+            <div class="controls">
+                <input class="input-large" id="FirstName" name="FirstName" type="text" required
+                       ng-model="User.FirstName">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="LastName">Last Name </label>
+
+            <div class="controls">
+                <input class="input-large" id="LastName" name="LastName" type="text" required ng-model="User.LastName">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="Email">Email </label>
+
+            <div class="controls">
+                <input class="input-large" id="Email" name="Email" type="email" unique-Email required
+                       ng-model="User.Email">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="Location">Location </label>
+
+            <div class="controls">
+                <input class="input-large" id="Location" name="Location" type="text" ng-model="User.Location">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="Bio">Bio </label>
+
+            <div class="controls">
+                <textarea id="Bio" name="Bio" ng-model="User.Bio" class="input-large"></textarea>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="WebSite">Web Site </label>
+
+            <div class="controls">
+                <input class="input-large" id="WebSite" name="WebSite" type="text" ng-model="User.WebSite">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="Password">Password </label>
+
+            <div class="controls">
+                <input class="input-large" id="Password" name="Password" type="password" ng-model="password" required
+                       validate-equals="confirmpassword">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="ConfirmPassword">Confirm Password </label>
+
+            <div class="controls">
+                <input class="input-large" id="ConfirmPassword" name="ConfirmPassword" type="password"
+                       ng-model="confirmpassword">
+            </div>
+        </div>
+        <div class="alert" ng-show="errorsExist()">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div ng-repeat="error in errorMessages">
+                <strong>Warning:</strong> <span ng-bind="error"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"></label>
+
+            <div class="controls">
+                <button ng-click="register()" ng-disabled="registerForm.$invalid" class="btn btn-primary">Register</button>
+                <a href="#/" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

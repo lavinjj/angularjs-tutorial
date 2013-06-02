@@ -1,0 +1,26 @@
+<div class="row-fluid" ng-controller="user-change-email-controller">
+    <form name="changeEmailForm" class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="Email">Email </label>
+
+            <div class="controls">
+                <input class="input-large" id="Email" name="Email" type="email" unique-Email required
+                       ng-model="User.Email">
+            </div>
+        </div>
+        <div class="alert" ng-show="errorsExist()">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <div ng-repeat="error in errorMessages">
+                <strong>Warning:</strong> <span ng-bind="error"></span>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"></label>
+
+            <div class="controls">
+                <button ng-click="changeEmail()" ng-disabled="changeEmailForm.$invalid" class="btn btn-primary">Update</button>
+                <a href="#/" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

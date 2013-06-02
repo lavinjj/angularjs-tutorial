@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+}
+.container-fluid {
+    min-height: 100%;
+}
+
+.col{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+.col-wrap{
+    overflow: hidden;
+}

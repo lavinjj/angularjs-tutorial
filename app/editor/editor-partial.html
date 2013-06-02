@@ -1,0 +1,15 @@
+<div ng-controller="editor-controller">
+    <div class="row-fluid">
+        <div class="span2">
+            <div>Source Files:</div>
+            <a ng-repeat="sourceFile in sourceFiles" ng-click="switchToSourceFile($index)">{{sourceFile.name}}</a>
+        </div>
+        <div class="span10">
+            <textarea ui-codemirror="editorOptions" ng-model="currentFile.source"></textarea>
+        </div>
+    </div>
+    <hr />
+    <div class="row-fluid" ng-show="slide.enableRun">
+        <button class="btn btn-primary pull-right" ng-click="runCode()">Run</button>
+    </div>
+</div>
