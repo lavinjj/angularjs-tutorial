@@ -1,7 +1,7 @@
-# Localization
+# A Coding Introduction to AngularJS
 
-If you plan on being in the Web App development business for any amount of time sooner or later you are going to be faced with building an app that supports multiple languages. When this time comes you'll be faced with the localization challenge that so many developers before you have faced.
+$('#code').explode(); is a term I use whenever I come across a new technology or framework that has the ability to totally disrupt the way I write code on a daily basis. AngularJS is one such framework.
 
-To solve this challenge some developers have built entire localization frameworks and libraries, while others have resorted to re-creating their entire site in the desired language and redirecting users based on their browser culture.
+Since adopting AngularJS I've been able to reduce the amount of code I write to create Single Page Apps by almost a third of what I did with other popular MVC frameworks and over half of what it took with jQuery.
 
-In this chapter, I'll show you an easy way to use an AngularJS Service, a few Directives and a Filter to pull localized strings from a resource file and populate the page content based on the user's browser culture.
+Don't get me wrong, those other frameworks and libraries are great and they have their place in front-end development, but AngularJS provides you with the tools that you need to build Single Page Apps all in one place, there is no need to bring in a bunch of other libraries just to get the core functionality for a Single Page App.

@@ -1,7 +1,8 @@
 <div ng-controller="tutorial-controller">
-    <div>{{currentSlide.title}} slide {{currentPage + 1}} of {{slides.length + 1}}</div>
-    <div mark-down="markdown"></div>
+    <h1>{{currentSlide.title}}</h1>
+    <div class="markdownWrapper" mark-down="markdown"></div>
     <div class="clearfix">&nbsp;</div>
+    slide {{currentPage + 1}} of {{slides.length}}
     <div class="pagination pull-right">
         <ul>
             <li ng-class="{disabled: currentPage == 0}">

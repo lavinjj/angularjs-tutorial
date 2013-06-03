@@ -1,6 +1,4 @@
-'use strict';
-
-Application.Services = angular.module('localize');
+Application.Services = angular.module('sample.services');
 
 Application.Services.factory('localize', ['$http', '$rootScope', '$window', '$filter', function($http, $rootScope, $window, $filter) {
     var localize = {

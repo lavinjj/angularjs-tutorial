@@ -1,3 +1,5 @@
+// CodeMirror version 3.13
+//
 // CodeMirror is the only global var we claim
 window.CodeMirror = (function() {
   "use strict";
@@ -1513,15 +1515,11 @@ window.CodeMirror = (function() {
     // Prevent wrapper from ever scrolling
     on(d.wrapper, "scroll", function() { d.wrapper.scrollTop = d.wrapper.scrollLeft = 0; });
 
-    var resizeTimer;
     function onResize() {
-      if (resizeTimer == null) resizeTimer = setTimeout(function() {
-        resizeTimer = null;
-        // Might be a text scaling operation, clear size caches.
-        d.cachedCharWidth = d.cachedTextHeight = null;
-        clearCaches(cm);
-        runInOp(cm, bind(regChange, cm));
-      }, 100);
+      // Might be a text scaling operation, clear size caches.
+      d.cachedCharWidth = d.cachedTextHeight = null;
+      clearCaches(cm);
+      runInOp(cm, bind(regChange, cm));
     }
     on(window, "resize", onResize);
     // Above handler holds on to the editor and its data structures.
@@ -1729,6 +1727,8 @@ window.CodeMirror = (function() {
 
     function done(e) {
       counter = Infinity;
+      var cur = posFromMouse(cm, e);
+      if (cur) doSelect(cur);
       e_preventDefault(e);
       focusInput(cm);
       off(document, "mousemove", move);
@@ -2187,20 +2187,20 @@ window.CodeMirror = (function() {
     return {anchor: adjustPos(doc.sel.anchor), head: adjustPos(doc.sel.head)};
   }
 
-  function filterChange(doc, change, update) {
+  function filterChange(doc, change) {
     var obj = {
       canceled: false,
       from: change.from,
       to: change.to,
       text: change.text,
       origin: change.origin,
+      update: function(from, to, text, origin) {
+        if (from) this.from = clipPos(doc, from);
+        if (to) this.to = clipPos(doc, to);
+        if (text) this.text = text;
+        if (origin !== undefined) this.origin = origin;
+      },
       cancel: function() { this.canceled = true; }
-    };
-    if (update) obj.update = function(from, to, text, origin) {
-      if (from) this.from = clipPos(doc, from);
-      if (to) this.to = clipPos(doc, to);
-      if (text) this.text = text;
-      if (origin !== undefined) this.origin = origin;
     };
     signal(doc, "beforeChange", doc, obj);
     if (doc.cm) signal(doc.cm, "beforeChange", doc.cm, obj);
@@ -2218,7 +2218,7 @@ window.CodeMirror = (function() {
     }
 
     if (hasHandler(doc, "beforeChange") || doc.cm && hasHandler(doc.cm, "beforeChange")) {
-      change = filterChange(doc, change, true);
+      change = filterChange(doc, change);
       if (!change) return;
     }
 
@@ -2263,16 +2263,9 @@ window.CodeMirror = (function() {
                 anchorAfter: event.anchorBefore, headAfter: event.headBefore};
     (type == "undo" ? hist.undone : hist.done).push(anti);
 
-    var filter = hasHandler(doc, "beforeChange") || doc.cm && hasHandler(doc.cm, "beforeChange");
-
     for (var i = event.changes.length - 1; i >= 0; --i) {
       var change = event.changes[i];
       change.origin = type;
-      if (filter && !filterChange(doc, change, false)) {
-        (type == "undo" ? hist.done : hist.undone).length = 0;
-        return;
-      }
-
       anti.changes.push(historyChangeFromChange(doc, change));
 
       var after = i ? computeSelAfterChange(doc, change, null)
@@ -2786,8 +2779,7 @@ window.CodeMirror = (function() {
     removeOverlay: operation(null, function(spec) {
       var overlays = this.state.overlays;
       for (var i = 0; i < overlays.length; ++i) {
-        var cur = overlays[i].modeSpec;
-        if (cur == spec || typeof spec == "string" && cur.name == spec) {
+        if (overlays[i].modeSpec == spec) {
           overlays.splice(i, 1);
           this.state.modeGen++;
           regChange(this);
@@ -5639,7 +5631,7 @@ window.CodeMirror = (function() {
 
   // THE END
 
-  CodeMirror.version = "3.13 +";
+  CodeMirror.version = "3.13";
 
   return CodeMirror;
 })();

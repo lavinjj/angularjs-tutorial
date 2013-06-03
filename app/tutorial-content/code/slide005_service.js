@@ -1,6 +1,4 @@
-'use strict';
-
-Application.Services = angular.module('localize');
+Application.Services = angular.module('sample.services');
 
 Application.Services.factory('localize', function() {
     var localize = {

@@ -1,18 +1,13 @@
 'use strict';
 
-Application.Controllers.controller('editor-controller', ['$scope', 'tutorial', 'tutorialNotificationChannel', function ($scope, tutorial, tutorialNotificationChannel) {
+Application.Controllers.controller('editor-controller', ['$scope', '$timeout', 'tutorial', 'tutorialNotificationChannel', function ($scope, $timeout, tutorial, tutorialNotificationChannel) {
     $scope.sourceCode = '';
-    $scope.editorOptions = {
-        lineWrapping: true,
-        lineNumbers: true,
-        indentUnit: 2,
-        readOnly: false,
-        smartIndent: true,
-        mode: 'javascript'
-    };
     $scope.sourceFiles = [];
     $scope.currentFile = null;
+    $scope.currentFileIndex = 0;
     $scope.slide = null;
+    $scope.widgets = [];
+    $scope.filesUpdated = false;
 
     $scope.onSlideChangedHandler = function (slide) {
         $scope.currentFile = '';
@@ -32,7 +27,7 @@ Application.Controllers.controller('editor-controller', ['$scope', 'tutorial', '
         angular.forEach(sourceFiles, function (sourceFile) {
             angular.forEach($scope.sourceFiles, function (source) {
                 if (sourceFile.name === source.url) {
-                    if (typeof sourceFile.source === 'Array') {
+                    if (Object.prototype.toString.call( sourceFile.source ) === '[object Array]') {
                         source.source = angular.toJson(sourceFile.source);
                     }
                     else {
@@ -42,13 +37,58 @@ Application.Controllers.controller('editor-controller', ['$scope', 'tutorial', '
             });
         });
 
-        $scope.currentFile = $scope.sourceFiles[0];
+        $scope.filesUpdated = true;
     };
 
     tutorialNotificationChannel.onSourceFilesLoaded($scope, $scope.onSourceFilesLoadedHandler);
 
-    $scope.switchToSourceFile = function (index) {
-        $scope.currentFile = $scope.sourceFiles[index];
+    $scope.getOptionsForFileType = function(mode){
+        var result = $scope.javascriptOptions;
+
+        if(mode === 'html'){
+            result = $scope.htmlOptions;
+        }
+        if (mode === 'json'){
+            result = $scope.jsonOptions;
+        }
+
+        return result;
+    }
+
+    $scope.javascriptOptions = {
+        lineWrapping: true,
+        lineNumbers: true,
+        indentUnit: 2,
+        readOnly: false,
+        smartIndent: true,
+        onChange: $scope.reParseInput,
+        mode: 'javascript',
+        gutters: ["CodeMirror-lint-markers"],
+        lintWith: CodeMirror.javascriptValidator
+    };
+
+    $scope.jsonOptions = {
+        lineWrapping: true,
+        lineNumbers: true,
+        indentUnit: 2,
+        readOnly: false,
+        smartIndent: true,
+        mode: 'javascript',
+        gutters: ["CodeMirror-lint-markers"],
+        lintWith: CodeMirror.jsonValidator
+    };
+
+    $scope.htmlOptions = {
+        lineWrapping: true,
+        lineNumbers: true,
+        indentUnit: 2,
+        readOnly: false,
+        smartIndent: true,
+        mode: 'html'
+    };
+
+    $scope.runCode = function() {
+        tutorialNotificationChannel.runExample($scope.sourceFiles);
     };
 
 }])

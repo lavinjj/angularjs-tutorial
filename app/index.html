@@ -6,7 +6,7 @@
 <!--[if IE 9]>
 <html ng-app="tutorial" xmlns:ng="http://angularjs.org" class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<html ng-app="tutorial" class="" lang="en"><!--<![endif]-->
+<html lang="en"><!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <style>
@@ -26,8 +26,9 @@
             padding-bottom: 40px;
         }
     </style>
-    <link href="lib/jquery-layout/layout-default.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="lib/codemirror/codemirror.css" rel="stylesheet">
+    <link href="lib/codemirror/addon/lint/lint.css" rel="stylesheet">
     <link href="application/application.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -40,11 +41,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
 </head>
-<body>
+<body id="tutorialApp">
+<div class="row-fluid">
+    <div ng-include src="'menu/menu-partial.html'"></div>
+</div>
 <div class="container-fluid">
-    <div class="row-fluid">
-        <div ng-include src="'menu/menu-partial.html'"></div>
-    </div>
     <div class="row-fluid">
         <div ng-include src="'tutorial/tutorial-partial.html'"></div>
     </div>
@@ -73,9 +74,15 @@
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/angular/angular.js"></script>
 <script src="lib/codemirror/codemirror.js"></script>
+<script src="lib/codemirror/mode/javascript/javascript.js"></script>
+<script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="lib/jshint/jshint.js"></script>
+<script src="lib/jsonlint/jsonlint.js"></script>
+<script src="lib/codemirror/addon/lint/lint.js"></script>
+<script src="lib/codemirror/addon/lint/javascript-lint.js"></script>
+<script src="lib/codemirror/addon/lint/json-lint.js"></script>
 <script src="lib/pagedown/Markdown.Converter.js"></script>
 <script src="lib/ui-utils/modules/jq/jq.js"></script>
-<script src="lib/ui-bootstrap/ui-bootstrap-0.3.0.js"></script>
 <script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
 <script src="lib/ui-codemirror/ui-codemirror.js"></script>
 <script src="lib/angularjs-mongolab-promise/mongolabResourceHttp.js"></script>
@@ -101,6 +108,7 @@
 <script src="localization/localization-filter.js"></script>
 <script src="menu/menu-controller.js"></script>
 <script src="results/results-controller.js"></script>
+<script src="results/results-directive.js"></script>
 <script src="tutorial/tutorial-controller.js"></script>
 <script src="user/login-controller.js"></script>
 <script src="user/user-register-controller.js"></script>

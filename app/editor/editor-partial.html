@@ -1,15 +1,15 @@
-<div ng-controller="editor-controller">
+<div ng-controller="editor-controller" ng-show="sourceFiles.length">
     <div class="row-fluid">
-        <div class="span2">
-            <div>Source Files:</div>
-            <a ng-repeat="sourceFile in sourceFiles" ng-click="switchToSourceFile($index)">{{sourceFile.name}}</a>
-        </div>
-        <div class="span10">
-            <textarea ui-codemirror="editorOptions" ng-model="currentFile.source"></textarea>
+        <div class="span12" >
+            <tabs>
+                <pane ng-repeat="sourceFile in sourceFiles" heading="{{sourceFile.name}}" active="pane.active"><textarea ui-codemirror="getOptionsForFileType(sourceFile.mode)" ui-refresh="filesUpdated" ng-model="sourceFile.source"></textarea></pane>
+            </tabs>
         </div>
     </div>
-    <hr />
-    <div class="row-fluid" ng-show="slide.enableRun">
-        <button class="btn btn-primary pull-right" ng-click="runCode()">Run</button>
+    <hr/>
+    <div class="row-fluid">
+        <div class="pull-right">
+            <button ng-show="slide.enableRun" class="btn btn-primary" ng-click="runCode()">Run</button>
+        </div>
     </div>
 </div>
