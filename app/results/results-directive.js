@@ -23,16 +23,16 @@ Application.Directives.
                         + '}'
                         + '</style>'
                         + '<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">'
-                        + '</head><body id="sampleApp">'
-                        + '<div ng-include src="template/home-partial.html" ></div>';
+                        + '</head><body>';
+//                        + '<div ng-include src="template/home-partial.html" ></div>';
 
                     var htmlEnd = "</body></html>";
 
                     var scripts = buildScript("lib/jquery/jquery-1.10.0.js")
                         + buildScript("lib/bootstrap/js/bootstrap.js")
                         + buildScript("lib/angular/angular.js")
-                        + buildScript("lib/angularjs-mongolab-promise/mongolabResourceHttp.js")
-                        + buildScript("tutorial-content/code/app.js");
+                        + buildScript("lib/angularjs-mongolab-promise/mongolabResourceHttp.js");
+//                        + buildScript("tutorial-content/code/app.js");
 
                     var bootstrap = '';
                     var currentHtml = '';
@@ -90,7 +90,8 @@ Application.Directives.
                     var scriptTag = '<script type="text/ng-template" ';
                     var attributes = 'id="template/' + sourceFile.name + '" ';
                     var scriptEndTag = "</script>";
-                    return scriptTag + attributes + ">" + content + scriptEndTag + "\r";
+                    return content + "\r";
+                    //return scriptTag + attributes + ">" + content + scriptEndTag + "\r";
                 };
             }
         };

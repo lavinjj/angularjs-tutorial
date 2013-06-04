@@ -1,6 +1,5 @@
-<div>
-    <label>Name:</label>
-    <input type="text" ng-model="yourName" placeholder="Enter a name here">
-    <hr>
-    <h1>Hello {{yourName}}!</h1>
+<div ng-app="myModule" id="ng-app" ng-controller="MyController">
+    <input ng-model="salute" type="text"/>
+    {{salute}} There!
+    <button ng-click="alertMe()" class="btn btn-primary">Alert</button>
 </div>

@@ -8,6 +8,12 @@
                 "url": "tutorial-content/code/slide001_html.html",
                 "index": 1,
                 "mode": "html"
+            },
+            {
+                "name": "test.js",
+                "url": "tutorial-content/code/slide001_test.js",
+                "index": 1,
+                "mode": "javascript"
             }
         ],
         "enableRun": true
