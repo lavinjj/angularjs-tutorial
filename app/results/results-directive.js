@@ -7,7 +7,7 @@ Application.Directives.
 
                 // by default the values will come in as undefined so we need to setup a
                 // watch to notify us when the value changes
-                scope.$watch(attrs.ngModel, function (newValue, oldValue) {
+                scope.$watch(attrs.resultsIframe, function (newValue, oldValue) {
                         generateHTMLOutput(newValue);
                 });
 

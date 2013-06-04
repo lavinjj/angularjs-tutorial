@@ -88,7 +88,7 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
     };
 
     $scope.runCode = function() {
-        tutorialNotificationChannel.runExample($scope.sourceFiles);
+        tutorialNotificationChannel.runExample(angular.copy($scope.sourceFiles));
     };
 
 }])
