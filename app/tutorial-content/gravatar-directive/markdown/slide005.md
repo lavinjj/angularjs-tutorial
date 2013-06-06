@@ -1,5 +1,3 @@
-## Services
-
 Let's start by creating a folder in our app structure to hold the localization functionality. We'll call it localization and then let's add new JavaScript file and calling it localization-service.js
 
 Then let's add the skeleton to define the service.

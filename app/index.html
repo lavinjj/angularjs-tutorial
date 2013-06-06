@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!--[if lt IE 8]>
-<html ng-app="tutorial" xmlns:ng="http://angularjs.org" class="ie lt-ie8 oldIE" lang="en"> <![endif]-->
+<html ng-app="slide" xmlns:ng="http://angularjs.org" class="ie lt-ie8 oldIE" lang="en"> <![endif]-->
 <!--[if lt IE 9]>
-<html ng-app="tutorial" xmlns:ng="http://angularjs.org" class="ie lt-ie9 oldIE" lang="en"> <![endif]-->
+<html ng-app="slide" xmlns:ng="http://angularjs.org" class="ie lt-ie9 oldIE" lang="en"> <![endif]-->
 <!--[if IE 9]>
-<html ng-app="tutorial" xmlns:ng="http://angularjs.org" class="ie ie9" lang="en"> <![endif]-->
+<html ng-app="slide" xmlns:ng="http://angularjs.org" class="ie ie9" lang="en"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
 <html lang="en"><!--<![endif]-->
 <head>
@@ -27,6 +27,8 @@
         }
     </style>
     <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootswatch.css" rel="stylesheet">
     <link href="lib/codemirror/codemirror.css" rel="stylesheet">
     <link href="lib/codemirror/addon/lint/lint.css" rel="stylesheet">
     <link href="application/application.css" rel="stylesheet">
@@ -45,24 +47,13 @@
 <div class="row-fluid">
     <div ng-include src="'menu/menu-partial.html'"></div>
 </div>
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div ng-include src="'tutorial/tutorial-partial.html'"></div>
-    </div>
-    <hr/>
-    <div class="row-fluid">
-        <div class="span6 col">
-            <div ng-include src="'editor/editor-partial.html'"></div>
-        </div>
-        <div class="span6 col">
-            <div ng-include src="'results/results-partial.html'"></div>
-        </div>
-    </div>
-    <div class="row-fluid">
+<div ng-view></div>
+<div class="row-fluid">
+    <div class="span12">
         <hr>
 
         <footer>
-            <p>&copy; Coding Smackdown TV 2012</p>
+            <p>&copy; <a href="http://codingsmackdown.tv">Coding Smackdown TV</a> 2012</p>
         </footer>
     </div>
 </div>
@@ -74,13 +65,22 @@
 <script src="lib/bootstrap/js/bootstrap.js"></script>
 <script src="lib/angular/angular.js"></script>
 <script src="lib/codemirror/codemirror.js"></script>
-<script src="lib/codemirror/mode/javascript/javascript.js"></script>
-<script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="lib/codemirror/addon/hint/show-hint.js"></script>
+<link rel="stylesheet" href="lib/codemirror/addon/hint/show-hint.css">
+<script src="lib/codemirror/addon/edit/closetag.js"></script>
+<script src="lib/codemirror/addon/hint/html-hint.js"></script>
 <script src="lib/jshint/jshint.js"></script>
 <script src="lib/jsonlint/jsonlint.js"></script>
 <script src="lib/codemirror/addon/lint/lint.js"></script>
 <script src="lib/codemirror/addon/lint/javascript-lint.js"></script>
 <script src="lib/codemirror/addon/lint/json-lint.js"></script>
+<script src="lib/codemirror/addon/display/placeholder.js"></script>
+<script src="lib/codemirror/addon/edit/matchbrackets.js"></script>
+<script src="lib/codemirror/addon/edit/closebrackets.js"></script>
+<script src="lib/codemirror/mode/xml/xml.js"></script>
+<script src="lib/codemirror/mode/javascript/javascript.js"></script>
+<script src="lib/codemirror/mode/css/css.js"></script>
+<script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
 <script src="lib/pagedown/Markdown.Converter.js"></script>
 <script src="lib/ui-utils/modules/jq/jq.js"></script>
 <script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.3.0.js"></script>
@@ -109,11 +109,17 @@
 <script src="menu/menu-controller.js"></script>
 <script src="results/results-controller.js"></script>
 <script src="results/results-directive.js"></script>
+<script src="slide/slide-controller.js"></script>
 <script src="tutorial/tutorial-controller.js"></script>
 <script src="user/login-controller.js"></script>
 <script src="user/user-register-controller.js"></script>
 <script src="user/user-profile-controller.js"></script>
 <script src="user/user-change-email-controller.js"></script>
 <script src="user/user-change-password-controller.js"></script>
+<script type="text/javascript">
+    CodeMirror.commands.autocomplete = function (cm) {
+        CodeMirror.showHint(cm, CodeMirror.htmlHint);
+    }
+</script>
 </body>
 </html>

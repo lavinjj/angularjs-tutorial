@@ -36,7 +36,7 @@ angular.module('ui.codemirror', [])
 
         deferCodeMirror = function () {
           codeMirror = CodeMirror.fromTextArea(elm[0], opts);
-          // scope['codeMirror'] = codeMirror;
+          scope['codeMirror'] = codeMirror;
           codeMirror.on("change", onChange(opts.onChange));
 
           for (var i = 0, n = events.length, aEvent; i < n; ++i) {
@@ -73,7 +73,9 @@ angular.module('ui.codemirror', [])
             scope.$watch(attrs.uiRefresh, function (newVal, oldVal) {
               // Skip the initial watch firing
               if (newVal !== oldVal) {
-                $timeout(function(){codeMirror.refresh();});
+                $timeout(function(){
+                    codeMirror.refresh();
+                });
               }
             });
           }

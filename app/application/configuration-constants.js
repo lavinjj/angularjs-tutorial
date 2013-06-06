@@ -1,6 +1,7 @@
 Application.Constants.constant('configuration', {
     messages: {
         USER_UPDATED: 'tutorial:userUpdated',
+        LESSONS_LOADED: 'tutorial:lessonsLoaded',
         SLIDES_LOADED: 'tutorial:slidesLoaded',
         MARKDOWN_LOADED: 'tutorial:markdownLoaded',
         SOURCE_FILES_LOADED: 'tutorial:sourceFilesLoaded',
@@ -13,7 +14,8 @@ Application.Constants.constant('configuration', {
         USER_PROFILE: '/myprofile',
         USER_EMAIL: '/myemail',
         USER_PASSWORD: '/mypassword',
-        SLIDES_URL: 'tutorial-content/slides.json'
+        TUTORIAL: '/tutorial/:index',
+        LESSONS_URL: 'tutorial-content/lessons.json'
     },
     templates: {
         HOME: 'home/home-partial.html',

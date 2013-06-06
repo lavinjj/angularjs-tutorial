@@ -1,6 +1,6 @@
 'use strict';
 
-Application.Controllers.controller('home-controller', ['$scope', '$location', 'authenticate', 'localize', 'CigarResource', 'RatingResource', 'UserResource', function($scope, $location, authenticate, localize, CigarResource, RatingResource, UserResource) {
+Application.Controllers.controller('home-controller', ['$scope', '$location', 'authenticate', 'localize', 'tutorial', 'tutorialNotificationChannel', 'UserResource', function($scope, $location, authenticate, localize, tutorial, tutorialNotificationChannel, UserResource) {
     $scope.myInterval = 5000;
     $scope.slides = [
         {image: '/app/images/Rate-A-Stogie-Banner_01.png',text: 'Today’s cigar smokers are increasingly selective and perceptive, and are eager to hone their skills of enjoying premium cigars.'},
@@ -12,17 +12,19 @@ Application.Controllers.controller('home-controller', ['$scope', '$location', 'a
         {image: '/app/images/Rate-A-Stogie-Banner_07.png',text: 'Here\'s one that we believe is amongst the best available.'},
         {image: '/app/images/Rate-A-Stogie-Banner_08.png',text: 'Rate A Stogie - The social site that allows you to review cigars.'}
     ];
-    $scope.TopRatedCigars = [];
-    $scope.NewReviews = [];
+
     $scope.TopContributors = [];
+    $scope.lessons = [];
+
+    $scope.onLessonsLoadedHandler = function(lessons){
+        $scope.lessons = lessons;
+    };
+
+    tutorialNotificationChannel.onLessonsLoaded($scope, $scope.onLessonsLoadedHandler);
 
     $scope.init = function() {
-        CigarResource.query({}, {sort:{"AverageRating":-1, "DateUpdated":-1}, limit:5}).then(function (result) {
-            $scope.TopRatedCigars = result;
-        });
-        RatingResource.query({}, {sort:{"ReviewDate":-1}, limit:5}).then(function (result) {
-            $scope.NewReviews = result;
-        });
+        tutorial.getLessons();
+
         UserResource.query({}, {sort:{"Ratings":-1, "DateUpdated":-1}, limit:5}).then(function (users) {
             $scope.TopContributors = users;
         });

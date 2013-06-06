@@ -1,8 +1,9 @@
 'use strict';
 
 Application.Controllers.controller('editor-controller', ['$scope', '$timeout', 'tutorial', 'tutorialNotificationChannel', function ($scope, $timeout, tutorial, tutorialNotificationChannel) {
-    $scope.sourceCode = '';
     $scope.sourceFiles = [];
+    $scope.currentIndex = 0;
+    $scope.currentSource = '';
     $scope.currentFile = null;
     $scope.currentFileIndex = 0;
     $scope.slide = null;
@@ -10,6 +11,7 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
     $scope.filesUpdated = false;
 
     $scope.onSlideChangedHandler = function (slide) {
+        $scope.setOptionsForFileType('text');
         $scope.currentFile = '';
         $scope.slide = slide;
         $scope.sourceFiles = slide.code;
@@ -18,41 +20,66 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
             source.push(sourceFile.url);
         });
 
-        tutorial.getSourceFiles(source);
+        if (source.length) {
+            tutorial.getSourceFiles(source);
+        }
     };
 
     tutorialNotificationChannel.onSlideChanged($scope, $scope.onSlideChangedHandler);
 
     $scope.onSourceFilesLoadedHandler = function (sourceFiles) {
-        angular.forEach(sourceFiles, function (sourceFile) {
-            angular.forEach($scope.sourceFiles, function (source) {
-                if (sourceFile.name === source.url) {
-                    if (Object.prototype.toString.call( sourceFile.source ) === '[object Array]') {
-                        source.source = angular.toJson(sourceFile.source);
+        if (sourceFiles.length) {
+            angular.forEach(sourceFiles, function (sourceFile) {
+                angular.forEach($scope.sourceFiles, function (source) {
+                    if (sourceFile.name === source.url) {
+                        if (Object.prototype.toString.call(sourceFile.source) === '[object Array]') {
+                            source.source = angular.toJson(sourceFile.source, true);
+                        }
+                        else {
+                            source.source = sourceFile.source;
+                        }
                     }
-                    else {
-                        source.source = sourceFile.source;
-                    }
-                }
+                });
             });
-        });
 
-        $scope.filesUpdated = true;
+            $scope.currentFile = $scope.sourceFiles[0];
+            $scope.currentIndex = $scope.currentFile.name;
+            $scope.setOptionsForFileType($scope.currentFile.mode);
+            $scope.filesUpdated = !$scope.filesUpdated;
+        }
     };
 
     tutorialNotificationChannel.onSourceFilesLoaded($scope, $scope.onSourceFilesLoadedHandler);
 
-    $scope.getOptionsForFileType = function(mode){
-        var result = $scope.javascriptOptions;
+    $scope.onTabSelected = function (index) {
+        $scope.currentFile = $scope.sourceFiles[index];
+        $scope.setOptionsForFileType($scope.currentFile.mode);
 
-        if(mode === 'html'){
-            result = $scope.htmlOptions;
-        }
-        if (mode === 'json'){
-            result = $scope.jsonOptions;
-        }
+        $scope.filesUpdated = !$scope.filesUpdated;
+    };
 
-        return result;
+    $scope.setOptionsForFileType = function (mode) {
+        if ($scope.codeMirror) {
+
+            $scope.codeMirror.setOption("mode", mode);
+
+            if (mode === 'text') {
+                $scope.codeMirror.setOption("gutters", []);
+                $scope.codeMirror.setOption("lintWith", null);
+            }
+            if (mode === 'text/html') {
+                $scope.codeMirror.setOption("gutters", []);
+                $scope.codeMirror.setOption("lintWith", null);
+            }
+            if (mode === 'javascript') {
+                $scope.codeMirror.setOption("gutters", ["CodeMirror-lint-markers"]);
+                $scope.codeMirror.setOption("lintWith", CodeMirror.javascriptValidator);
+            }
+            if (mode === 'json') {
+                $scope.codeMirror.setOption("gutters", ["CodeMirror-lint-markers"]);
+                $scope.codeMirror.setOption("lintWith", CodeMirror.jsonValidator);
+            }
+        }
     }
 
     $scope.javascriptOptions = {
@@ -61,7 +88,9 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
         indentUnit: 2,
         readOnly: false,
         smartIndent: true,
-        onChange: $scope.reParseInput,
+        matchBrackets: true,
+        autoCloseBrackets: true,
+//        onChange: $scope.reParseInput,
         mode: 'javascript',
         gutters: ["CodeMirror-lint-markers"],
         lintWith: CodeMirror.javascriptValidator
@@ -73,6 +102,8 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
         indentUnit: 2,
         readOnly: false,
         smartIndent: true,
+        matchBrackets: true,
+        autoCloseBrackets: true,
         mode: 'javascript',
         gutters: ["CodeMirror-lint-markers"],
         lintWith: CodeMirror.jsonValidator
@@ -84,12 +115,13 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
         indentUnit: 2,
         readOnly: false,
         smartIndent: true,
-        mode: 'html'
+        mode: "htmlmixed",
+        autoCloseTags: true,
+        extraKeys: {"Ctrl-Space": "autocomplete"}
     };
 
-    $scope.runCode = function() {
+    $scope.runCode = function () {
         tutorialNotificationChannel.runExample(angular.copy($scope.sourceFiles));
     };
-
 }])
 ;

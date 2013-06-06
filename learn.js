@@ -107,7 +107,7 @@ var Learn = (function (learn, $, _gaq) {
     }
 
     learn.selectTutorial = function() {
-        $('#dialog-select-tutorial').dialog({
+        $('#dialog-select-slide').dialog({
             resizable: false,
             width: 600,
             position: { at: "top+35%" }
@@ -115,11 +115,11 @@ var Learn = (function (learn, $, _gaq) {
     };
 
     learn.finishSelection = function (tutorial) {
-        $('#dialog-select-tutorial').dialog('close');
+        $('#dialog-select-slide').dialog('close');
         learn.activeTutorial(tutorial);
         learn.activeStepNumber(1);
         showStep(0);
-        learn.trackEvent("select-tutorial", false);
+        learn.trackEvent("select-slide", false);
     };
 
     learn.about = function () {
@@ -178,7 +178,7 @@ var Learn = (function (learn, $, _gaq) {
             if (Learn.canMoveNext()) {
                 htmlValue = htmlValue + '<button class="button" onclick=Learn.moveNext()><strong>Continue to next step</strong></button><br><br>';
             } else {
-                htmlValue = htmlValue + '<button class="button" onclick=Learn.selectTutorial()><strong>Next tutorial</strong></button><br><br>';
+                htmlValue = htmlValue + '<button class="button" onclick=Learn.selectTutorial()><strong>Next slide</strong></button><br><br>';
             }
             $(element).html(htmlValue || "");
             // colorize code
@@ -357,3 +357,64 @@ var Learn = (function (learn, $, _gaq) {
 
     return learn;
 })(Learn || {}, $, _gaq);
+
+ar app = angular.module('plunker', []);
+
+app.controller('MainCtrl', function($scope, $compile, AsyncScriptLoader) {
+    $scope.name = 'World';
+
+    var fetchTestDir = function(){
+    }
+
+    $scope.add = function($event){
+        AsyncScriptLoader.load('test-dir.js').then(function(){
+            var el = angular.element($event.srcElement), newEl = angular.element('<test-dir></test-dir>');
+            el.after(newEl);
+            $compile(newEl)(el.scope());
+        });
+    }
+});
+
+app.service('AsyncScriptLoader',function($q,$rootScope){
+
+    var scripts = {};
+
+    var loadScriptAsync = function(src){
+        if(!scripts[src]){
+            var deferred = $q.defer();
+
+            var script = document.createElement('script'), run = false;
+            script.type = 'text/javascript';
+            script.src = src;
+
+            script.onload = script.onreadystatechange = function() {
+                if( !run && (!this.readyState || this.readyState === 'complete') ){
+                    run = true;
+                    deferred.resolve('Script ready: ' + src);
+                    $rootScope.$digest();
+                }
+            };
+            document.body.appendChild(script);
+
+            scripts[src] = deferred.promise;
+        }
+
+        return scripts[src];
+    }
+
+    return {
+        load:loadScriptAsync
+    };
+
+});
+
+
+app.config(function($compileProvider){
+
+    window.MyDynamicApp = {
+        directive:function(){
+            $compileProvider.directive.apply(null,arguments);
+        }
+    };
+
+});

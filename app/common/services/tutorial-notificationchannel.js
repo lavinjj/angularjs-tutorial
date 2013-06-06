@@ -1,12 +1,23 @@
 Application.Services
     .factory('tutorialNotificationChannel', ['$rootScope', 'configuration', function ($rootScope, configuration) {
         // private notification messages
+        var _LESSONS_LOADED_ = configuration.messages.LESSONS_LOADED;
         var _SLIDES_LOADED_ = configuration.messages.SLIDES_LOADED;
         var _MARKDOWN_LOADED_ = configuration.messages.MARKDOWN_LOADED;
         var _SOURCE_FILES_LOADED_ = configuration.messages.SOURCE_FILES_LOADED;
         var _SLIDE_CHANGED_ = configuration.messages.SLIDE_CHANGED;
         var _RUN_EXAMPLE_ = configuration.messages.RUN_EXAMPLE;
 
+        // publish slide loaded notification
+        var lessonsLoaded = function (lessons) {
+            $rootScope.$broadcast(_LESSONS_LOADED_, {lessons: lessons});
+        };
+        //subscribe to slide loaded notification
+        var onLessonsLoaded = function ($scope, handler) {
+            $scope.$on(_LESSONS_LOADED_, function (event, args) {
+                handler(args['lessons']);
+            });
+        };
         // publish slide loaded notification
         var slidesLoaded = function (slides) {
             $rootScope.$broadcast(_SLIDES_LOADED_, {slides: slides});
@@ -59,6 +70,8 @@ Application.Services
         };
         // return the publicly accessible methods
         return {
+            lessonsLoaded: lessonsLoaded,
+            onLessonsLoaded: onLessonsLoaded,
             slidesLoaded: slidesLoaded,
             onSlidesLoaded: onSlidesLoaded,
             markdownLoaded: markdownLoaded,

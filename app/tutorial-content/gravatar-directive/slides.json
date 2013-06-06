@@ -1,0 +1,72 @@
+[
+    {
+        "title": "A Coding Introduction to AngularJS",
+        "markdownUrl": "tutorial-content/gravatar-directive/markdown/slide001.md",
+        "code": [
+            {
+                "name": "home-partial.html",
+                "url": "tutorial-content/gravatar-directive/code/slide001_html.html",
+                "index": 1,
+                "mode": "text/html"
+            },
+            {
+                "name": "test.js",
+                "url": "tutorial-content/gravatar-directive/code/slide001_test.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "enableRun": true
+    },
+    {
+        "title": "Overview of the feature",
+        "markdownUrl": "tutorial-content/gravatar-directive/markdown/slide002.md",
+        "code": [],
+        "enableRun": false
+    },
+    {
+        "title": "The Filter and Directive",
+        "markdownUrl": "tutorial-content/gravatar-directive/markdown/slide003.md",
+        "code": [],
+        "enableRun": false
+    },
+    {
+        "title": "The Localizaton Resource File",
+        "markdownUrl": "tutorial-content/gravatar-directive/markdown/slide004.md",
+        "code": [
+            {
+                "name": "data.json",
+                "url": "tutorial-content/gravatar-directive/code/slide004_data.json",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "enableRun": false
+    },
+    {
+        "title": "Writing the Service - 1",
+        "markdownUrl": "tutorial-content/gravatar-directive/markdown/slide005.md",
+        "code": [
+            {
+                "name": "service.js",
+                "url": "tutorial-content/gravatar-directive/code/slide005_service.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "enableRun": false
+    },
+    {
+        "title": "Writing the Service - 2",
+        "markdownUrl": "tutorial-content/gravatar-directive/markdown/slide006.md",
+        "code": [
+            {
+                "name": "service.js",
+                "url": "tutorial-content/gravatar-directive/code/slide006_service.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "enableRun": false
+    }
+]

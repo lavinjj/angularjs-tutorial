@@ -1,21 +1,13 @@
-<div ng-controller="tutorial-controller">
-    <h1>{{currentSlide.title}}</h1>
-    <div class="markdownWrapper" mark-down="markdown"></div>
-    <div class="clearfix">&nbsp;</div>
-    slide {{currentPage + 1}} of {{slides.length}}
-    <div class="pagination pull-right">
-        <ul>
-            <li ng-class="{disabled: currentPage == 0}">
-                <a href ng-click="prevPage()">« Prev</a>
-            </li>
-            <li ng-repeat="n in range(slides.length)"
-                ng-class="{active: n == currentPage}"
-                ng-click="setPage()">
-                <a href ng-bind="n + 1">1</a>
-            </li>
-            <li ng-class="{disabled: currentPage == slides.length - 1}">
-                <a href ng-click="nextPage()">Next »</a>
-            </li>
-        </ul>
+<div class="container-fluid" ng-controller="tutorial-controller">
+    <div class="row-fluid">
+        <div class="span4 col">
+            <div ng-include src="'slide/slide-partial.html'"></div>
+        </div>
+        <div class="span4 col">
+            <div ng-include src="'editor/editor-partial.html'"></div>
+        </div>
+        <div class="span4 col">
+            <div ng-include src="'results/results-partial.html'"></div>
+        </div>
     </div>
 </div>

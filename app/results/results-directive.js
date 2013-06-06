@@ -23,7 +23,7 @@ Application.Directives.
                         + '}'
                         + '</style>'
                         + '<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">'
-                        + '</head><body>';
+                        + '</head><body id="ng-app">';
 //                        + '<div ng-include src="template/home-partial.html" ></div>';
 
                     var htmlEnd = "</body></html>";
@@ -32,7 +32,7 @@ Application.Directives.
                         + buildScript("lib/bootstrap/js/bootstrap.js")
                         + buildScript("lib/angular/angular.js")
                         + buildScript("lib/angularjs-mongolab-promise/mongolabResourceHttp.js");
-//                        + buildScript("tutorial-content/code/app.js");
+//                        + buildScript("slide-content/code/app.js");
 
                     var bootstrap = '';
                     var currentHtml = '';
@@ -44,7 +44,7 @@ Application.Directives.
                         if (sourceFile.mode === 'json') {
                             bootstrap = bootstrap + buildScript("", buildOnLoad(sourceFile.source));
                         }
-                        if (sourceFile.mode === 'html') {
+                        if (sourceFile.mode === 'text/html') {
                             currentHtml = currentHtml + buildHtmlTemplate(sourceFile);
                         }
                     });

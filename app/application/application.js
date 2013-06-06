@@ -15,6 +15,7 @@ angular.module('tutorial', ['ui.bootstrap', 'ui.jq', 'ui.codemirror', 'mongolabR
         when(configuration.urls.USER_PROFILE, {templateUrl:configuration.templates.USER_PROFILE}).
         when(configuration.urls.USER_EMAIL, {templateUrl:configuration.templates.USER_EMAIL}).
         when(configuration.urls.USER_PASSWORD, {templateUrl:configuration.templates.USER_PASSWORD}).
+        when(configuration.urls.TUTORIAL, {templateUrl:configuration.templates.TUTORIAL}).
         otherwise({templateUrl:configuration.templates.ERROR});
   }]);
 

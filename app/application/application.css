@@ -4,12 +4,16 @@ html, body {
 
 iframe {
     height: 100%;
-    width: 100%;
+    width: 97%;
     border: 0px;
 }
 
 .container-fluid {
     min-height: 100%;
+}
+
+.markdownWrapper {
+    width: 97%;
 }
 
 .col {
@@ -21,27 +25,23 @@ iframe {
     overflow: hidden;
 }
 
-.markdownWrapper {
-    height: 400px;
-}
-
 .CodeMirror {
     border: 1px solid black;
+    height: 100%;
+    width: 99%;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
-.lint-error {
-    font-family: arial;
-    font-size: 70%;
-    background: #ffa;
-    color: #a00;
-    padding: 2px 5px 3px;
+.CodeMirror-empty {
+    outline: 1px solid #c22;
 }
 
-.lint-error-icon {
-    color: white;
-    background-color: red;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 0 3px;
-    margin-right: 7px;
+.CodeMirror-empty.CodeMirror-focused {
+    outline: none;
 }
+
+.CodeMirror pre.CodeMirror-placeholder {
+    color: #999;
+}
+

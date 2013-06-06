@@ -1,5 +1,3 @@
-# A Coding Introduction to AngularJS
-
 $('#code').explode(); is a term I use whenever I come across a new technology or framework that has the ability to totally disrupt the way I write code on a daily basis. AngularJS is one such framework.
 
 Since adopting AngularJS I've been able to reduce the amount of code I write to create Single Page Apps by almost a third of what I did with other popular MVC frameworks and over half of what it took with jQuery.
