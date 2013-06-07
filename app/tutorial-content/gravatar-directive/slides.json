@@ -16,6 +16,18 @@
                 "mode": "javascript"
             }
         ],
+        "htmlTemplate": "tutorial-content/gravatar-directive/html/starter.html",
+        "cssfiles": [
+            "lib/bootstrap/css/bootstrap.min.css",
+            "lib/bootstrap/css/bootstrap-responsive.min.css"
+        ],
+        "javascriptFiles": [
+            "lib/jquery/jquery-1.10.0.js",
+            "lib/bootstrap/js/bootstrap.js",
+            "lib/angular/angular.js",
+            "lib/angularjs-mongolab-promise/mongolabResourceHttp.js"
+        ],
+        "allowAddFile":false,
         "enableRun": true
     },
     {

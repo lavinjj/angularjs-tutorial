@@ -7,9 +7,9 @@
     },
     {
         "name": "Unit Testing Basics",
-        "image": "tutorial-content/gravatar-directive/AngularLogo.png",
+        "image": "tutorial-content/unit-testing-intro/AngularLogo.png",
         "description": "In this lesson you will learn the basics of writing unit tests for AngularJS components.",
-        "slideUrl" : "tutorial-content/gravatar-directive/slides.json"
+        "slideUrl" : "tutorial-content/unit-testing-intro/slides.json"
     },
     {
         "name": "Unit Testing Controllers",

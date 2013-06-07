@@ -1,5 +1,5 @@
 Application.Directives.
-    directive('resultsIframe', ['$window', '$document', function ($window, $document) {
+    directive('resultsIframe', ['$http', function ($http) {
         return {
             restrict: 'A',
             requires: 'ngModel',
@@ -7,91 +7,107 @@ Application.Directives.
 
                 // by default the values will come in as undefined so we need to setup a
                 // watch to notify us when the value changes
-                scope.$watch(attrs.resultsIframe, function (newValue, oldValue) {
+                scope.$watch(attrs.resultsIframe, function (newValue) {
+                    if (newValue) {
                         generateHTMLOutput(newValue);
+                    }
                 });
 
-                var generateHTMLOutput = function (sourceFiles) {
+                var generateHTMLOutput = function (slideFile) {
+                    if(slideFile.htmlTemplate){
+                        // load the html template
+                        loadHTMLTemplate(slideFile.htmlTemplate).then(function (response) {
 
-                    var htmlStart = '<!DOCTYPE html>'
-                        + '<html><head>'
-                        + '<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">'
-                        + '<style type="text/css">'
-                        + 'body {'
-                        + 'padding-top: 60px;'
-                        + 'padding-bottom: 40px;'
-                        + '}'
-                        + '</style>'
-                        + '<link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">'
-                        + '</head><body id="ng-app">';
-//                        + '<div ng-include src="template/home-partial.html" ></div>';
-
-                    var htmlEnd = "</body></html>";
-
-                    var scripts = buildScript("lib/jquery/jquery-1.10.0.js")
-                        + buildScript("lib/bootstrap/js/bootstrap.js")
-                        + buildScript("lib/angular/angular.js")
-                        + buildScript("lib/angularjs-mongolab-promise/mongolabResourceHttp.js");
-//                        + buildScript("slide-content/code/app.js");
-
-                    var bootstrap = '';
-                    var currentHtml = '';
-
-                    angular.forEach(sourceFiles, function (sourceFile) {
-                        if (sourceFile.mode === 'javascript') {
-                            bootstrap = bootstrap + buildScript("", buildOnLoad(sourceFile.source));
-                        }
-                        if (sourceFile.mode === 'json') {
-                            bootstrap = bootstrap + buildScript("", buildOnLoad(sourceFile.source));
-                        }
-                        if (sourceFile.mode === 'text/html') {
-                            currentHtml = currentHtml + buildHtmlTemplate(sourceFile);
-                        }
-                    });
-
-                    var html = htmlStart + currentHtml + scripts + bootstrap + htmlEnd;
-
-
-                    var frame = document.createElement("iframe");
-                    elm.empty().append(frame);
-
-                    var doc = null;
-                    if (frame.contentDocument) {
-                        doc = frame.contentDocument;
-                    } else if (frame.contentWindow) {
-                        doc = frame.contentWindow.document;
-                    } else if (frame.document) {
-                        doc = frame.document;
+                            // assign the response to the local var
+                            var htmlTemplate = response.data;
+                            var cssFiles = '';
+                            var javaScriptFiles = '';
+                            var javaScript = '';
+                            var htmlScripts = '';
+                            var cssScripts = '';
+                            // walk each css file and build the link reference for it
+                            angular.forEach(slideFile.cssfiles, function (file) {
+                                cssFiles = cssFiles + buildCssTemplate(file);
+                            });
+                            // walk each java script file and build the script tag for it
+                            angular.forEach(slideFile.javascriptFiles, function (file) {
+                                javaScriptFiles = javaScriptFiles + buildJavaScriptTemplate(file);
+                            });
+                            // walk each of the slide's source files and build the appropriate
+                            // type of tag to include into the html template
+                            angular.forEach(slideFile.sourceFiles, function (sourceFile) {
+                                if (sourceFile.mode === 'javascript') {
+                                    javaScript = javaScript + buildJavaScriptTemplate("", buildOnLoad(sourceFile.source));
+                                }
+                                if (sourceFile.mode === 'json') {
+                                    javaScript = javaScript + buildJavaScriptTemplate("", buildOnLoad(sourceFile.source));
+                                }
+                                if (sourceFile.mode === 'text/html') {
+                                    htmlScripts = htmlScripts + sourceFile.source;
+                                }
+                                if (sourceFile.mode === 'css') {
+                                    cssScripts = cssScripts + buildCssTemplate("", sourceFile);
+                                }
+                            });
+                            // insert the html source fragments into the html template
+                            var htmlTemplate = htmlTemplate.replace("<!-- CSS Files Here -->", cssFiles);
+                            htmlTemplate = htmlTemplate.replace("<!-- CSS Scripts Here -->", cssScripts);
+                            htmlTemplate = htmlTemplate.replace("<!-- HTML Scripts Here -->", htmlScripts);
+                            htmlTemplate = htmlTemplate.replace("<!-- JavaScript Files Here -->", javaScriptFiles);
+                            htmlTemplate = htmlTemplate.replace("<!-- Inline JavaScript Here -->", javaScript);
+                            // create the iframe that will hold the result html file
+                            var frame = document.createElement("iframe");
+                            // clear out the element's old html and append the iframe
+                            elm.empty().append(frame);
+                            // get a reference to the iframe's document
+                            var doc = null;
+                            if (frame.contentDocument) {
+                                doc = frame.contentDocument;
+                            } else if (frame.contentWindow) {
+                                doc = frame.contentWindow.document;
+                            } else if (frame.document) {
+                                doc = frame.document;
+                            }
+                            // write the html into the iframe so it will load and run
+                            doc.open();
+                            doc.write(htmlTemplate);
+                            doc.close();
+                        });
                     }
-
-
-                    doc.open();
-                    doc.write(html);
-                    doc.close();
-
                 };
 
-                var buildScript = function (src, content) {
-                    content = content || "";
-                    var scriptTag = "<script ";
-                    var attributes = src ? "src='" + src + "'" : "";
-                    var scriptEndTag = "</script>";
-                    return scriptTag + attributes + ">" + content + scriptEndTag + "\r";
+                var loadHTMLTemplate = function (url, htmlTemplate) {
+                    return $http({ method: "GET", url: url, cache: false });
+                };
+
+                var buildCssTemplate = function (src, content) {
+                    content = content || '';
+                    src = src || '';
+
+                    if (src) {
+                        var scriptTag = '<link ';
+                        var attributes = src ? 'href="' + src + '"' : '';
+                        var scriptEndTag = ' rel="stylesheet">';
+                        return scriptTag + attributes + scriptEndTag + '\r';
+                    }
+                    if (content) {
+                        return '<style type="text/css">\r' + content + '</style>\r';
+                    }
+                };
+
+                var buildJavaScriptTemplate = function (src, content) {
+                    content = content || '';
+
+                    var scriptTag = '<script ';
+                    var attributes = src ? 'src="' + src + '"' : '';
+                    var scriptEndTag = '</script>';
+                    return scriptTag + attributes + '>' + content + scriptEndTag + '\r';
                 };
 
                 var buildOnLoad = function (currentJavascript) {
                     return "\rwindow.onload = function() {\rtry { "
                         + currentJavascript
                         + "\r} catch (e) { alert('Not working: ' + e) }}";
-                };
-
-                var buildHtmlTemplate = function (sourceFile) {
-                    var content = sourceFile.source || "";
-                    var scriptTag = '<script type="text/ng-template" ';
-                    var attributes = 'id="template/' + sourceFile.name + '" ';
-                    var scriptEndTag = "</script>";
-                    return content + "\r";
-                    //return scriptTag + attributes + ">" + content + scriptEndTag + "\r";
                 };
             }
         };

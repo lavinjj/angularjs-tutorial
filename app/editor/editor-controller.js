@@ -121,7 +121,9 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
     };
 
     $scope.runCode = function () {
-        tutorialNotificationChannel.runExample(angular.copy($scope.sourceFiles));
+        var runPackage = angular.copy($scope.slide);
+        runPackage.sourceFiles = $scope.sourceFiles;
+        tutorialNotificationChannel.runExample(runPackage);
     };
 }])
 ;

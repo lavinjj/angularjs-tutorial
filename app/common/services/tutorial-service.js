@@ -7,27 +7,27 @@ Application.Services.factory('tutorial', ['$http', '$q', 'configuration', 'tutor
         slides: [],
         sourceFiles: [],
 
-        lessonsSuccessCallback: function(data) {
+        lessonsSuccessCallback: function(response) {
             // store the returned array in the dictionary
-            tutorial.lessons = data.data;
+            tutorial.lessons = response.data;
             // broadcast that the file has been loaded
             tutorialNotificationChannel.lessonsLoaded(tutorial.lessons);
         },
 
-        slidesSuccessCallback: function(data) {
+        slidesSuccessCallback: function(response) {
             // store the returned array in the dictionary
-            tutorial.slides = data.data;
+            tutorial.slides = response.data;
             // broadcast that the file has been loaded
             tutorialNotificationChannel.slidesLoaded(tutorial.slides);
         },
 
-        markdownSuccessCallback: function(data) {
+        markdownSuccessCallback: function(response) {
             // broadcast that the file has been loaded
-            tutorialNotificationChannel.markdownLoaded(data.data);
+            tutorialNotificationChannel.markdownLoaded(response.data);
         },
 
-        sourceFileSuccessCallback: function(data) {
-            tutorial.sourceFiles.push({name: data.config.url, source: data.data});
+        sourceFileSuccessCallback: function(response) {
+            tutorial.sourceFiles.push({name: response.config.url, source: response.data});
         },
 
         // methods
