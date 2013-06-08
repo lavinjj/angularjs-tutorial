@@ -1,16 +1,14 @@
 'use strict';
 
 Application.Controllers.controller('home-controller', ['$scope', '$location', 'authenticate', 'localize', 'tutorial', 'tutorialNotificationChannel', 'UserResource', function($scope, $location, authenticate, localize, tutorial, tutorialNotificationChannel, UserResource) {
-    $scope.myInterval = 5000;
+    $scope.myInterval = 2000;
     $scope.slides = [
-        {image: '/app/images/Rate-A-Stogie-Banner_01.png',text: 'Today’s cigar smokers are increasingly selective and perceptive, and are eager to hone their skills of enjoying premium cigars.'},
-        {image: '/app/images/Rate-A-Stogie-Banner_02.png',text: 'Limited production, high quality stogies are always emerging and evolving and require the complements of proper storage and aging that you can provide.'},
-        {image: '/app/images/Rate-A-Stogie-Banner_03.png',text: 'Even a once immature, coarse tasting and rough burning smoke may gain balance and richness just from laying down in your properly maintained humidor for an appropriate time.'},
-        {image: '/app/images/Rate-A-Stogie-Banner_04.png',text: 'Long-term aging is not a practice for the average smoker, but rather a luxury embraced by the connoisseur smoker and hobbyist.'},
-        {image: '/app/images/Rate-A-Stogie-Banner_05.png',text: 'Having a standardized cigar rating system can be very useful. You want to be able to compare different cigars, rated by different people, in different places at different times.'},
-        {image: '/app/images/Rate-A-Stogie-Banner_06.png',text: 'There is no cigar rating system that is perfect, and there probably never will be!'},
-        {image: '/app/images/Rate-A-Stogie-Banner_07.png',text: 'Here\'s one that we believe is amongst the best available.'},
-        {image: '/app/images/Rate-A-Stogie-Banner_08.png',text: 'Rate A Stogie - The social site that allows you to review cigars.'}
+        {image: '/app/images/Do-And-Understand-Banner_01.png',text: ''},
+        {image: '/app/images/Do-And-Understand-Banner_02.png',text: ''},
+        {image: '/app/images/Do-And-Understand-Banner_03.png',text: ''},
+        {image: '/app/images/Do-And-Understand-Banner_04.png',text: ''},
+        {image: '/app/images/Do-And-Understand-Banner_05.png',text: ''},
+        {image: '/app/images/Do-And-Understand-Banner_06.png',text: ''}
     ];
 
     $scope.TopContributors = [];

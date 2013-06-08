@@ -80,33 +80,6 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
                 $scope.codeMirror.setOption("lintWith", CodeMirror.jsonValidator);
             }
         }
-    }
-
-    $scope.javascriptOptions = {
-        lineWrapping: true,
-        lineNumbers: true,
-        indentUnit: 2,
-        readOnly: false,
-        smartIndent: true,
-        matchBrackets: true,
-        autoCloseBrackets: true,
-//        onChange: $scope.reParseInput,
-        mode: 'javascript',
-        gutters: ["CodeMirror-lint-markers"],
-        lintWith: CodeMirror.javascriptValidator
-    };
-
-    $scope.jsonOptions = {
-        lineWrapping: true,
-        lineNumbers: true,
-        indentUnit: 2,
-        readOnly: false,
-        smartIndent: true,
-        matchBrackets: true,
-        autoCloseBrackets: true,
-        mode: 'javascript',
-        gutters: ["CodeMirror-lint-markers"],
-        lintWith: CodeMirror.jsonValidator
     };
 
     $scope.htmlOptions = {
@@ -120,10 +93,13 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
         extraKeys: {"Ctrl-Space": "autocomplete"}
     };
 
-    $scope.runCode = function () {
+    $scope.onRunExampleHandler = function(){
         var runPackage = angular.copy($scope.slide);
         runPackage.sourceFiles = $scope.sourceFiles;
-        tutorialNotificationChannel.runExample(runPackage);
+        tutorialNotificationChannel.slideSaved(runPackage);
     };
+
+    tutorialNotificationChannel.onRunExample($scope, $scope.onRunExampleHandler);
+
 }])
 ;

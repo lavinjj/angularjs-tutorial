@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Seedling</title>
+  <link rel="stylesheet" href="/app/tutorial-content/e2e-testing-intro/app2/application/application.css"/>
+</head>
+<body>
+ 	<nav>
+		<ng-include src="'/app/tutorial-content/e2e-testing-intro/app2/menu/menu-partial.html'"/>
+ 	</nav>
+	
+  <ng-view/>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+  -->
+  <script type="text/ng-template" id="menu/menu-item-template.html">
+      <a href="#/{{id}}">{{name}}</a>
+  </script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/lib/angular.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/application/application.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/application/configuration-constants.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/menu/menu-service.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/details/details-controller.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/error/error-controller.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/menu/menu-controller.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/menu/menu-item-directive.js"></script>
+  <script src="/app/tutorial-content/e2e-testing-intro/app2/date-time/to-date-string-filter.js"></script>
+  <script>
+      angular.bootstrap(document, ['myApp']);
+  </script>
+</body>
+</html>

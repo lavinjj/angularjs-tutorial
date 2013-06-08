@@ -1,70 +1,72 @@
 Application.Services
     .factory('tutorialNotificationChannel', ['$rootScope', 'configuration', function ($rootScope, configuration) {
-        // private notification messages
-        var _LESSONS_LOADED_ = configuration.messages.LESSONS_LOADED;
-        var _SLIDES_LOADED_ = configuration.messages.SLIDES_LOADED;
-        var _MARKDOWN_LOADED_ = configuration.messages.MARKDOWN_LOADED;
-        var _SOURCE_FILES_LOADED_ = configuration.messages.SOURCE_FILES_LOADED;
-        var _SLIDE_CHANGED_ = configuration.messages.SLIDE_CHANGED;
-        var _RUN_EXAMPLE_ = configuration.messages.RUN_EXAMPLE;
-
         // publish slide loaded notification
         var lessonsLoaded = function (lessons) {
-            $rootScope.$broadcast(_LESSONS_LOADED_, {lessons: lessons});
+            $rootScope.$broadcast(configuration.messages.LESSONS_LOADED, {lessons: lessons});
         };
         //subscribe to slide loaded notification
         var onLessonsLoaded = function ($scope, handler) {
-            $scope.$on(_LESSONS_LOADED_, function (event, args) {
+            $scope.$on(configuration.messages.LESSONS_LOADED, function (event, args) {
                 handler(args['lessons']);
             });
         };
         // publish slide loaded notification
         var slidesLoaded = function (slides) {
-            $rootScope.$broadcast(_SLIDES_LOADED_, {slides: slides});
+            $rootScope.$broadcast(configuration.messages.SLIDES_LOADED, {slides: slides});
         };
         //subscribe to slide loaded notification
         var onSlidesLoaded = function ($scope, handler) {
-            $scope.$on(_SLIDES_LOADED_, function (event, args) {
+            $scope.$on(configuration.messages.SLIDES_LOADED, function (event, args) {
                 handler(args['slides']);
             });
         };
         // publish markdown loaded notification
         var markdownLoaded = function (markdown) {
-            $rootScope.$broadcast(_MARKDOWN_LOADED_, {markdown: markdown});
+            $rootScope.$broadcast(configuration.messages.MARKDOWN_LOADED, {markdown: markdown});
         };
         //subscribe to markdown loaded notification
         var onMarkdownLoaded = function ($scope, handler) {
-            $scope.$on(_MARKDOWN_LOADED_, function (event, args) {
+            $scope.$on(configuration.messages.MARKDOWN_LOADED, function (event, args) {
                 handler(args['markdown']);
             });
         };
         // publish source files loaded notification
         var sourceFilesLoaded = function (sourceFiles) {
-            $rootScope.$broadcast(_SOURCE_FILES_LOADED_, {sourceFiles: sourceFiles});
+            $rootScope.$broadcast(configuration.messages.SOURCE_FILES_LOADED, {sourceFiles: sourceFiles});
         };
         //subscribe to source files loaded notification
         var onSourceFilesLoaded = function ($scope, handler) {
-            $scope.$on(_SOURCE_FILES_LOADED_, function (event, args) {
+            $scope.$on(configuration.messages.SOURCE_FILES_LOADED, function (event, args) {
                 handler(args['sourceFiles']);
             });
         };
         // publish slide change notification
         var slideChanged = function (slide) {
-            $rootScope.$broadcast(_SLIDE_CHANGED_, {slide: slide});
+            $rootScope.$broadcast(configuration.messages.SLIDE_CHANGED, {slide: slide});
         };
         //subscribe to slide change notification
         var onSlideChanged = function ($scope, handler) {
-            $scope.$on(_SLIDE_CHANGED_, function (event, args) {
+            $scope.$on(configuration.messages.SLIDE_CHANGED, function (event, args) {
                 handler(args['slide']);
             });
         };
         // publish request to run example code
-        var runExample = function (sourceFiles) {
-            $rootScope.$broadcast(_RUN_EXAMPLE_, {sourceFiles: sourceFiles});
+        var runExample = function () {
+            $rootScope.$broadcast(configuration.messages.RUN_EXAMPLE);
         };
         // subscribe to run example code notification
         var onRunExample = function ($scope, handler) {
-            $scope.$on(_RUN_EXAMPLE_, function (event, args) {
+            $scope.$on(configuration.messages.RUN_EXAMPLE, function () {
+                handler();
+            })
+        };
+        // publish request to run example code
+        var slideSaved = function (sourceFiles) {
+            $rootScope.$broadcast(configuration.messages.SLIDE_SAVED, {sourceFiles: sourceFiles});
+        };
+        // subscribe to run example code notification
+        var onSlideSaved = function ($scope, handler) {
+            $scope.$on(configuration.messages.SLIDE_SAVED, function (event, args) {
                 handler(args['sourceFiles']);
             })
         };
@@ -81,6 +83,8 @@ Application.Services
             slideChanged: slideChanged,
             onSlideChanged: onSlideChanged,
             runExample: runExample,
-            onRunExample: onRunExample
+            onRunExample: onRunExample,
+            slideSaved: slideSaved,
+            onSlideSaved: onSlideSaved
         };
     }])

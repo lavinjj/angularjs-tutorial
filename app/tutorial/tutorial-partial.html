@@ -1,13 +1,12 @@
 <div class="container-fluid" ng-controller="tutorial-controller">
     <div class="row-fluid">
-        <div class="span4 col">
+        <div class="span4 col" column-expander="expandColumn" collapsed-class="span4" expanded-class="span12">
             <div ng-include src="'slide/slide-partial.html'"></div>
         </div>
-        <div class="span4 col">
-            <div ng-include src="'editor/editor-partial.html'"></div>
-        </div>
-        <div class="span4 col">
-            <div ng-include src="'results/results-partial.html'"></div>
+        <div class="span8 col" ng-hide="expandColumn">
+            <div ng-include src="'editor/editor-partial.html'" ng-show="currentSlide.code.length" ></div>
+            <hr/>
+            <div ng-include src="'results/results-partial.html'" ng-show="currentSlide.enableRun" ></div>
         </div>
     </div>
 </div>

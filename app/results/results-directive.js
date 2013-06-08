@@ -72,11 +72,14 @@ Application.Directives.
                             doc.open();
                             doc.write(htmlTemplate);
                             doc.close();
+                            // set the iframe's styles to expand to fill the column
+                            $('iframe').css('height', '100%');
+                            $('iframe').css('width', '100%');
                         });
                     }
                 };
 
-                var loadHTMLTemplate = function (url, htmlTemplate) {
+                var loadHTMLTemplate = function (url) {
                     return $http({ method: "GET", url: url, cache: false });
                 };
 

@@ -6,7 +6,8 @@ Application.Constants.constant('configuration', {
         MARKDOWN_LOADED: 'tutorial:markdownLoaded',
         SOURCE_FILES_LOADED: 'tutorial:sourceFilesLoaded',
         SLIDE_CHANGED: 'tutorial:slideChanged',
-        RUN_EXAMPLE: 'tutorial:runExample'
+        RUN_EXAMPLE: 'tutorial:runExample',
+        SLIDE_SAVED: 'tutorial:slideSaved'
     },
     urls: {
         HOME: '/',

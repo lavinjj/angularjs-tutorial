@@ -5,7 +5,6 @@
             <span class="btn-group">
                 <button ng-repeat="sourceFile in sourceFiles" type="radio" class="btn" ng-model="currentIndex" btn-radio="{{sourceFile.name}}" ng-click="onTabSelected($index)">{{sourceFile.name}}</button>
             </span>
-            <button ng-show="slide.enableRun" class="btn btn-primary pull-right" ng-click="runCode()">Run</button>
         </div>
     </div>
     <div class="clearfix">&nbsp;</div>

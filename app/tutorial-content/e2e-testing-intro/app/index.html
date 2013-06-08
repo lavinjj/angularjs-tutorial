@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="application">
+<head>
+    <meta charset="utf-8">
+    <title>Angular Seedling</title>
+    <!-- CSS Files Here -->
+    <!-- CSS Scripts Here -->
+</head>
+<body>
+<nav>
+    <ng-include src="'menu/menu-partial.html'"/>
+</nav>
+
+<ng-view></ng-view>
+
+<script type="text/ng-template" id="menu/menu-item-template.html">
+    <a href="#/{{id}}">{{name}}</a>
+</script>
+<script type="text/ng-template" id="menu/menu-partial.html">
+    <ul class="menu" ng-controller="menu">
+        <li ng-repeat="item in items"><menu-item id="item.id" name="item.name" /></li>
+    </ul>
+</script>
+<script type="text/ng-template" id="error/error-partial.html">
+    <h1>{{code}}</h1>
+    <p>{{message}}</p>
+</script>
+<script type="text/ng-template" id="details/details-partial.html">
+    <div ng-controller="details">
+        <h1>{{item.name}}</h1>
+        <p>{{item.description}}</p>
+        <p>Created on {{item.timestamp | toDateString}}</p>
+    </div>
+</script>
+<script type="text/ng-template" id="about/about-partial.html">
+    Content of the template.
+</script>
+
+<!-- JavaScript Files Here -->
+</body>
+</html>

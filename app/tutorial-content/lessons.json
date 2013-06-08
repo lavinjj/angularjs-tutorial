@@ -12,10 +12,10 @@
         "slideUrl" : "tutorial-content/unit-testing-intro/slides.json"
     },
     {
-        "name": "Unit Testing Controllers",
-        "image": "tutorial-content/gravatar-directive/AngularLogo.png",
+        "name": "End to End Testing Intro",
+        "image": "tutorial-content/e2e-testing-intro/AngularLogo.png",
         "description": "In this lesson you will learn how to write unit tests for AngularJS Controllers.",
-        "slideUrl" : "tutorial-content/gravatar-directive/slides.json"
+        "slideUrl" : "tutorial-content/e2e-testing-intro/slides.json"
     },
     {
         "name": "Unit Testing Directives",

@@ -1,0 +1,62 @@
+[
+    {
+        "title": "AngularJS E2e Testing Intro to Jasmine",
+        "markdownUrl": "tutorial-content/e2e-testing-intro/markdown/slide001.md",
+        "code": [
+            {
+                "name": "unit-test-001",
+                "url": "tutorial-content/e2e-testing-intro/code/slide001.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "tutorial-content/e2e-testing-intro/app/index.html",
+        "cssfiles": ["tutorial-content/e2e-testing-intro/app/application/application.css"],
+        "javascriptFiles": [
+            "tutorial-content/e2e-testing-intro/app/lib/angular.js",
+            "tutorial-content/e2e-testing-intro/app/application/application.js",
+            "tutorial-content/e2e-testing-intro/app/application/configuration-constants.js",
+            "tutorial-content/e2e-testing-intro/app/menu/menu-service.js",
+            "tutorial-content/e2e-testing-intro/app/details/details-controller.js",
+            "tutorial-content/e2e-testing-intro/app/error/error-controller.js",
+            "tutorial-content/e2e-testing-intro/app/menu/menu-controller.js",
+            "tutorial-content/e2e-testing-intro/app/menu/menu-item-directive.js",
+            "tutorial-content/e2e-testing-intro/app/date-time/to-date-string-filter.js"
+        ],
+        "allowAddFile": false,
+        "enableRun": true
+    },
+    {
+        "title": "AngularJS E2e Testing Intro to Jasmine",
+        "markdownUrl": "tutorial-content/e2e-testing-intro/markdown/slide001.md",
+        "code": [
+            {
+                "name": "unit-test-001",
+                "url": "tutorial-content/e2e-testing-intro/code/slide001.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "scenario/e2erunner.html",
+        "cssfiles": ["app/lib/angular-scenario/angular-scenario.css"],
+        "javascriptFiles": [
+            "app/lib/angular-scenario/Scenario.js",
+            "app/lib/angular-scenario/Application.js",
+            "app/lib/angular-scenario/Describe.js",
+            "app/lib/angular-scenario/Future.js",
+            "app/lib/angular-scenario/Runner.js",
+            "app/lib/angular-scenario/SpecRunner.js",
+            "app/lib/angular-scenario/dsl.js",
+            "app/lib/angular-scenario/matchers.js",
+            "app/lib/angular-scenario/ObjectModel.js",
+            "app/lib/angular-scenario/output/Html.js",
+            "app/lib/angular-scenario/output/Json.js",
+            "app/lib/angular-scenario/output/Object.js",
+            "app/lib/angular-scenario/output/Xml.js",
+            "tutorial-content/e2e-testing-intro/scenario/home-test.js",
+            "tutorial-content/e2e-testing-intro/scenario/layout-test.js"
+        ],
+        "allowAddFile": false,
+        "enableRun": true
+    }
+]

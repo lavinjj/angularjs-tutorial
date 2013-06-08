@@ -7,6 +7,7 @@ Application.Controllers.controller('tutorial-controller', ['$scope', '$http', '$
     $scope.slides = [];
     $scope.currentSlide = null;
     $scope.markdown = '# Slide Failed to Load';
+    $scope.expandColumn = false;
 
     $scope.onLessonsLoadedHandler = function(lessons){
         $scope.lessons = lessons;
@@ -18,6 +19,15 @@ Application.Controllers.controller('tutorial-controller', ['$scope', '$http', '$
     };
 
     tutorialNotificationChannel.onLessonsLoaded($scope, $scope.onLessonsLoadedHandler);
+
+    $scope.onSlideChangedHandler = function (slide) {
+        $scope.currentSlide = slide;
+        $scope.expandColumn = ((slide.code.length === 0) && (slide.enableRun === false));
+    };
+
+    tutorialNotificationChannel.onSlideChanged($scope, $scope.onSlideChangedHandler);
+
+
 
     $scope.init = function() {
         tutorial.getLessons();
