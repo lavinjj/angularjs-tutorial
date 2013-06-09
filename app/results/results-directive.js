@@ -75,6 +75,7 @@ Application.Directives.
                             // set the iframe's styles to expand to fill the column
                             $('iframe').css('height', '100%');
                             $('iframe').css('width', '100%');
+                            $('iframe').css('border', '0px;');
                         });
                     }
                 };

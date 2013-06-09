@@ -3,12 +3,12 @@
 Application.Controllers.controller('home-controller', ['$scope', '$location', 'authenticate', 'localize', 'tutorial', 'tutorialNotificationChannel', 'UserResource', function($scope, $location, authenticate, localize, tutorial, tutorialNotificationChannel, UserResource) {
     $scope.myInterval = 2000;
     $scope.slides = [
-        {image: '/app/images/Do-And-Understand-Banner_01.png',text: ''},
-        {image: '/app/images/Do-And-Understand-Banner_02.png',text: ''},
-        {image: '/app/images/Do-And-Understand-Banner_03.png',text: ''},
-        {image: '/app/images/Do-And-Understand-Banner_04.png',text: ''},
-        {image: '/app/images/Do-And-Understand-Banner_05.png',text: ''},
-        {image: '/app/images/Do-And-Understand-Banner_06.png',text: ''}
+        {image: './images/Do-And-Understand-Banner_01.png',text: ''},
+        {image: './images/Do-And-Understand-Banner_02.png',text: ''},
+        {image: './images/Do-And-Understand-Banner_03.png',text: ''},
+        {image: './images/Do-And-Understand-Banner_04.png',text: ''},
+        {image: './images/Do-And-Understand-Banner_05.png',text: ''},
+        {image: './images/Do-And-Understand-Banner_06.png',text: ''}
     ];
 
     $scope.TopContributors = [];

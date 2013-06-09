@@ -1,14 +1,12 @@
-The user story for this feature is below. Although it may seem simple, it has far reaching repercussions that will reach every part of your application.
+Gravatar allows you to upload an image and link it to your email address, so it can be used by the various social networking and forum sites on the web.
 
-`As a user I want the site to be displayed in my language
-of preference so that I can understand the site's features with ease.`
+If you head over to the Gravatar developer documentation on how to request images, http://en.gravatar.com/site/implement/images/. You’ll see that you need to create a md5 hash of the user’s email and then append that to a Url along with parameters for size, rating, and default image.
 
-To me, this is a cross cutting concern, so there is no better way to implement this than with a service. We will use localized resource files for each language we want to support. We will also have a default resource file that will be used to fall back to the site's native language if a given user's language is not supported.
+So the Url for my email address jlavin@jimlavin.net gets converted into the following image tag:
 
-We will build an AngularJS Service that will be responsible for checking the user's browser culture and requesting the appropriate resource based on the language. If the resource file does not exist it will request the default resource file and use it.
 
-The service will also provide a lookup method that will return a localized string for a given key from the loaded resource file.
+    <img src="http://www.gravatar.com/avatar/80b03752791145a3fdd027b154d7b42b?s=40&amp;r=pg&amp;d=404">
 
-Since the service may not be called directly by a controller or app module we'll also provide a mechanism for the service to initialize itself, load the appropriate localized resource file and prepare itself to handle requests.
+So we are going to write a directive that will take an email address and inject the resulting image tag into the page. When we are complete the directive will look something like this:
 
-We will also build both an AngularJS Filter and a couple of Directives that can be used in your HTML as a front-end to the localization service. Using these will help you keep your code clean and keep you controllers from having to know about the localization service.
+    <gravatar-image data-email="currentBrewer.Email" data-size="40" ></gravatar-image>

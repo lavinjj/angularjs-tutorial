@@ -1,5 +1,4 @@
 <div ng-controller="slide-controller">
-    <strong>{{currentSlide.title}}</strong>
     <div class="pagination">
         <ul>
             <li ng-class="{disabled: currentPage == 0}">
@@ -15,6 +14,8 @@
             </li>
         </ul>
     </div>
+    <div class="clearfix">&nbsp;</div>
+    <strong>{{currentSlide.title}}</strong>
     <div class="clearfix">&nbsp;</div>
     <div class="markdownWrapper" mark-down="markdown"></div>
 </div>

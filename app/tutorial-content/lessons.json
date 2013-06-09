@@ -1,38 +1,38 @@
 [
     {
         "name": "Building a Simple Directive",
-        "image": "tutorial-content/gravatar-directive/AngularLogo.png",
+        "image": "./tutorial-content/gravatar-directive/AngularLogo.png",
         "description": "In this lesson you will learn how to write a simple directive that displays a gravatar image for an email address.",
-        "slideUrl" : "tutorial-content/gravatar-directive/slides.json"
+        "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
     },
     {
         "name": "Unit Testing Basics",
-        "image": "tutorial-content/unit-testing-intro/AngularLogo.png",
+        "image": "./tutorial-content/unit-testing-intro/AngularLogo.png",
         "description": "In this lesson you will learn the basics of writing unit tests for AngularJS components.",
-        "slideUrl" : "tutorial-content/unit-testing-intro/slides.json"
+        "slideUrl" : "./tutorial-content/unit-testing-intro/slides.json"
     },
     {
         "name": "End to End Testing Intro",
-        "image": "tutorial-content/e2e-testing-intro/AngularLogo.png",
+        "image": "./tutorial-content/e2e-testing-intro/AngularLogo.png",
         "description": "In this lesson you will learn how to write unit tests for AngularJS Controllers.",
-        "slideUrl" : "tutorial-content/e2e-testing-intro/slides.json"
+        "slideUrl" : "./tutorial-content/e2e-testing-intro/slides.json"
     },
     {
         "name": "Unit Testing Directives",
-        "image": "tutorial-content/gravatar-directive/AngularLogo.png",
+        "image": "./tutorial-content/gravatar-directive/AngularLogo.png",
         "description": "In this lesson you will learn how to write unit tests for AngularJS Directives.",
-        "slideUrl" : "tutorial-content/gravatar-directive/slides.json"
+        "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
     },
     {
         "name": "Unit Testing Services",
-        "image": "tutorial-content/gravatar-directive/AngularLogo.png",
+        "image": "./tutorial-content/gravatar-directive/AngularLogo.png",
         "description": "In this lesson you will learn how to write unit tests for AngularJS Services.",
-        "slideUrl" : "tutorial-content/gravatar-directive/slides.json"
+        "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
     },
     {
         "name": "End to End Testing Basics",
-        "image": "tutorial-content/gravatar-directive/AngularLogo.png",
+        "image": "./tutorial-content/gravatar-directive/AngularLogo.png",
         "description": "In this lesson you will learn basics of writing unit tests for AngularJS Applications.",
-        "slideUrl" : "tutorial-content/gravatar-directive/slides.json"
+        "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
     }
 ]
