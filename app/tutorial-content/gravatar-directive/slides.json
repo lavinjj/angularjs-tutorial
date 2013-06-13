@@ -6,7 +6,7 @@
         "htmlTemplate": "",
         "cssfiles": [],
         "javascriptFiles": [],
-        "allowAddFile":false,
+        "allowAddFile": false,
         "enableRun": false
     },
     {
@@ -16,7 +16,7 @@
         "htmlTemplate": "",
         "cssfiles": [],
         "javascriptFiles": [],
-        "allowAddFile":false,
+        "allowAddFile": false,
         "enableRun": false
     },
     {
@@ -39,59 +39,69 @@
         "htmlTemplate": "",
         "cssfiles": [],
         "javascriptFiles": [],
-        "allowAddFile":false,
+        "allowAddFile": false,
         "enableRun": false
     },
     {
-        "title": "The Localizaton Resource File",
+        "title": "Simple Data Binding",
         "markdownUrl": "./tutorial-content/gravatar-directive/markdown/slide004.md",
         "code": [
+            {
+                "name": "gravatar-directive.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide004-directive.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "hint",
+                "url": "./tutorial-content/gravatar-directive/code/slide004-hint.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            }
         ],
         "htmlTemplate": "",
         "cssfiles": [],
         "javascriptFiles": [],
-        "allowAddFile":false,
+        "allowAddFile": false,
         "enableRun": false
     },
     {
-        "title": "Writing the Service - 1",
+        "title": "First Pass of the Directive",
         "markdownUrl": "./tutorial-content/gravatar-directive/markdown/slide005.md",
         "code": [
             {
-                "name": "service.js",
-                "url": "./tutorial-content/gravatar-directive/code/slide005_service.js",
+                "name": "app.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide005-app.js",
                 "index": 1,
-                "mode": "hint-javascript"
-            }
-        ],
-        "enableRun": false
-    },
-    {
-        "title": "Writing the Service - 2",
-        "markdownUrl": "./tutorial-content/gravatar-directive/markdown/slide006.md",
-        "code": [
+                "mode": "javascript"
+            },
             {
-                "name": "service.js",
-                "url": "./tutorial-content/gravatar-directive/code/slide006_service.js",
+                "name": "gravatar-directive.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide005-directive.js",
                 "index": 1,
-                "mode": "hint-javascript"
-            }
-        ],
-        "enableRun": false
-    },
-    {
-        "title": "Creating a Simple AngularJS Directive",
-        "markdownUrl": "./tutorial-content/gravatar-directive/markdown/slide001.md",
-        "code": [
+                "mode": "javascript"
+            },
             {
-                "name": "home-partial.html",
-                "url": "./tutorial-content/gravatar-directive/code/slide001_html.html",
+                "name": "hint",
+                "url": "./tutorial-content/gravatar-directive/code/slide005-hint.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "app-partial.html",
+                "url": "./tutorial-content/gravatar-directive/code/slide005-html.html",
                 "index": 1,
                 "mode": "text/html"
             },
             {
-                "name": "test.js",
-                "url": "./tutorial-content/gravatar-directive/code/slide001_test.js",
+                "name": "md5-service.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide005-service.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "bootstrap.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide005-bootstrap.js",
                 "index": 1,
                 "mode": "javascript"
             }
@@ -104,10 +114,117 @@
         "javascriptFiles": [
             "lib/jquery/jquery-1.10.0.js",
             "lib/bootstrap/js/bootstrap.js",
-            "lib/angular/angular.js",
-            "lib/angularjs-mongolab-promise/mongolabResourceHttp.js"
+            "lib/angular/angular.js"
         ],
-        "allowAddFile":false,
+        "allowAddFile": false,
+        "enableRun": true
+    },
+    {
+        "title": "Adding Configuration Attributes",
+        "markdownUrl": "./tutorial-content/gravatar-directive/markdown/slide006.md",
+        "code": [
+            {
+                "name": "app.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide006-app.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "gravatar-directive.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide006-directive.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "hint",
+                "url": "./tutorial-content/gravatar-directive/code/slide006-hint.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "app-partial.html",
+                "url": "./tutorial-content/gravatar-directive/code/slide006-html.html",
+                "index": 1,
+                "mode": "text/html"
+            },
+            {
+                "name": "md5-service.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide006-service.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "bootstrap.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide006-bootstrap.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "./tutorial-content/gravatar-directive/html/starter.html",
+        "cssfiles": [
+            "lib/bootstrap/css/bootstrap.min.css",
+            "lib/bootstrap/css/bootstrap-responsive.min.css"
+        ],
+        "javascriptFiles": [
+            "lib/jquery/jquery-1.10.0.js",
+            "lib/bootstrap/js/bootstrap.js",
+            "lib/angular/angular.js"
+        ],
+        "allowAddFile": false,
+        "enableRun": true
+    },
+    {
+        "title": "Improving Performance",
+        "markdownUrl": "./tutorial-content/gravatar-directive/markdown/slide007.md",
+        "code": [
+            {
+                "name": "app.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide007-app.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "gravatar-directive.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide007-directive.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "hint",
+                "url": "./tutorial-content/gravatar-directive/code/slide007-hint.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "app-partial.html",
+                "url": "./tutorial-content/gravatar-directive/code/slide007-html.html",
+                "index": 1,
+                "mode": "text/html"
+            },
+            {
+                "name": "md5-service.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide007-service.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "bootstrap.js",
+                "url": "./tutorial-content/gravatar-directive/code/slide007-bootstrap.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "./tutorial-content/gravatar-directive/html/starter.html",
+        "cssfiles": [
+            "lib/bootstrap/css/bootstrap.min.css",
+            "lib/bootstrap/css/bootstrap-responsive.min.css"
+        ],
+        "javascriptFiles": [
+            "lib/jquery/jquery-1.10.0.js",
+            "lib/bootstrap/js/bootstrap.js",
+            "lib/angular/angular.js"
+        ],
+        "allowAddFile": false,
         "enableRun": true
     }
 ]

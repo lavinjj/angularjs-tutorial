@@ -61,40 +61,39 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
     $scope.setOptionsForFileType = function (mode) {
         if ($scope.codeMirror) {
 
-            $scope.codeMirror.setOption("mode", mode);
 
             if (mode === 'text') {
-                $scope.codeMirror.setOption("readOnly", false);
+                $scope.codeMirror.setOption("mode", mode);
                 $scope.codeMirror.setOption("gutters", []);
                 $scope.codeMirror.setOption("lintWith", null);
             }
             if (mode === 'text/html') {
-                $scope.codeMirror.setOption("readOnly", false);
+                $scope.codeMirror.setOption("mode", 'text/html');
                 $scope.codeMirror.setOption("gutters", []);
                 $scope.codeMirror.setOption("lintWith", null);
             }
             if (mode === 'hint-text/html') {
-                $scope.codeMirror.setOption("readOnly", "nocursor");
+                $scope.codeMirror.setOption("mode", mode);
                 $scope.codeMirror.setOption("gutters", []);
                 $scope.codeMirror.setOption("lintWith", null);
             }
             if (mode === 'javascript') {
-                $scope.codeMirror.setOption("readOnly", false);
+                $scope.codeMirror.setOption("mode", mode);
                 $scope.codeMirror.setOption("gutters", ["CodeMirror-lint-markers"]);
                 $scope.codeMirror.setOption("lintWith", CodeMirror.javascriptValidator);
             }
             if (mode === 'hint-javascript') {
-                $scope.codeMirror.setOption("readOnly", "nocursor");
+                $scope.codeMirror.setOption("mode", 'javascript');
                 $scope.codeMirror.setOption("gutters", ["CodeMirror-lint-markers"]);
                 $scope.codeMirror.setOption("lintWith", CodeMirror.javascriptValidator);
             }
             if (mode === 'json') {
-                $scope.codeMirror.setOption("readOnly", false);
+                $scope.codeMirror.setOption("mode", mode);
                 $scope.codeMirror.setOption("gutters", ["CodeMirror-lint-markers"]);
                 $scope.codeMirror.setOption("lintWith", CodeMirror.jsonValidator);
             }
             if (mode === 'hint-json') {
-                $scope.codeMirror.setOption("readOnly", "nocursor");
+                $scope.codeMirror.setOption("mode", 'json');
                 $scope.codeMirror.setOption("gutters", ["CodeMirror-lint-markers"]);
                 $scope.codeMirror.setOption("lintWith", CodeMirror.jsonValidator);
             }

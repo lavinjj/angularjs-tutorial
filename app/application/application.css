@@ -2,17 +2,6 @@ html, body {
     height: 100%;
 }
 
-.col {
-    margin-bottom: -9999px;
-    padding-bottom: 9999px;
-}
-
-.iframeContainer {
-    height: 100%;
-    width: 97%;
-    border: 0px;
-}
-
 .container-fluid {
     min-height: 100%;
     overflow: hidden;

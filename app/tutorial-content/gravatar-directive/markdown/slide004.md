@@ -1,11 +1,13 @@
-Finally let's talk a bit about how we'll store the localized data for the service. Since our service will be requesting the resource files once the app in bootstrapped, we need a place to store them. To keep the overall size of the service small I thought it was best not to embed the strings in the service class, but put them in directory off the root of the site named i18n. This follows the same pattern you see with several libraries where the localized strings are in a directory co-located with the module.
+**Follow along by writing the directive in the code panel to the right. If you get stuck, check the hint for the answer.**
 
-The files have a specific file naming format; resources-locale_xx-yy.js where xx is the language identifier and yy is the international country code. So resources-locale_en-US.js would mean the file is for English, United States and resources-locale_es_es.js would mean the file is for Spanish, Spain.
+So we are going to need an email address in order to formulate the Url to retrieve an avatar image. To do this we can use simple data binding and send the data value or object we want to bind to as part of the directive’s declaration as shown below:
 
-There is one more file naming convention we'll use and that is for the default resource file, it will be named resources-locale_default.js.
+    <div gravatar-image="email" ></div>
 
-The format of the language resource file is simple. Since we only really need a few pieces of information, I've kept it to key, value and description. This way if you need to hand the file off to someone for translation they'll have a general description of what the text is for.
+To access the data, we’ll need to use the attributes instance to setup a watch on the data and then as we are notified of changes, we can update the DOM accordingly. The reason we have to setup a watch is because initially the data will come through as undefined as AngularJS compiles the DOM, only when it runs the linker to bind the data to the DOM will a value be present in our scope.
 
-This format will also help other developers on the project. When they are getting ready to add a new string resource they'll be able to search the file to see if maybe there is already a string they can use. This comes in real handy for buttons, table headers, etc.
+    scope.$watch(value-to-watch, function(newVaule, oldValue) {
+        // perform your processing here when the data changes
+    });
 
-Below is an example of the file format:
+Add a $watch function to the link function so each time the data updates, we set the element’s text to the updated value. One thing to remember you need to watch the attributes instance, not the scope value, since the scope value is undefined when the link function is called and the watch will never be triggered.

@@ -23,6 +23,7 @@ Application.Directives.
                             var cssFiles = '';
                             var javaScriptFiles = '';
                             var javaScript = '';
+                            var jsContent = ''
                             var htmlScripts = '';
                             var cssScripts = '';
                             // walk each css file and build the link reference for it
@@ -37,10 +38,10 @@ Application.Directives.
                             // type of tag to include into the html template
                             angular.forEach(slideFile.sourceFiles, function (sourceFile) {
                                 if (sourceFile.mode === 'javascript') {
-                                    javaScript = javaScript + buildJavaScriptTemplate("", buildOnLoad(sourceFile.source));
+                                    jsContent = jsContent + sourceFile.source + '\r';
                                 }
                                 if (sourceFile.mode === 'json') {
-                                    javaScript = javaScript + buildJavaScriptTemplate("", buildOnLoad(sourceFile.source));
+                                    jsContent = jsContent + sourceFile.source + '\r';
                                 }
                                 if (sourceFile.mode === 'text/html') {
                                     htmlScripts = htmlScripts + sourceFile.source;
@@ -49,6 +50,8 @@ Application.Directives.
                                     cssScripts = cssScripts + buildCssTemplate("", sourceFile);
                                 }
                             });
+
+                            javaScript = buildJavaScriptTemplate('', buildOnLoad(jsContent));
                             // insert the html source fragments into the html template
                             var htmlTemplate = htmlTemplate.replace("<!-- CSS Files Here -->", cssFiles);
                             htmlTemplate = htmlTemplate.replace("<!-- CSS Scripts Here -->", cssScripts);
@@ -109,7 +112,7 @@ Application.Directives.
                 };
 
                 var buildOnLoad = function (currentJavascript) {
-                    return "\rwindow.onload = function() {\rtry { "
+                    return "\rwindow.onload = function() {\rtry {\r"
                         + currentJavascript
                         + "\r} catch (e) { alert('Not working: ' + e) }}";
                 };
