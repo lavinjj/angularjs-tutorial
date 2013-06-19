@@ -1,6 +1,6 @@
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-41445864-2']);
-_gaq.push(['_setDomainName', 'doandunderstand.com']);
+_gaq.push(['_setAccount', 'UA-41445864-1']);
+_gaq.push(['_setDomainName', 'codingsmackdown.tv']);
 _gaq.push(['_setAllowLinker', true]);
 _gaq.push(['_trackPageview']);
 
