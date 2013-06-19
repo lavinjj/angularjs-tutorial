@@ -1,6 +1,6 @@
 'use strict';
 
-Application.Controllers.controller('results-controller', ['$scope', 'tutorialNotificationChannel', function($scope, tutorialNotificationChannel) {
+Application.Controllers.controller('results-controller', ['$scope', 'tutorialNotificationChannel', 'Angularytics', function($scope, tutorialNotificationChannel, Angularytics) {
     $scope.sourceFiles = [];
     $scope.currentSlide = null;
 
@@ -19,6 +19,7 @@ Application.Controllers.controller('results-controller', ['$scope', 'tutorialNot
     tutorialNotificationChannel.onSlideSaved($scope, $scope.onSlideSavedHandler);
 
     $scope.runCode = function () {
+        Angularytics.trackEvent("Run Code", "Run Code");
         tutorialNotificationChannel.runExample();
     };
 

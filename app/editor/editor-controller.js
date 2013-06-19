@@ -1,6 +1,6 @@
 'use strict';
 
-Application.Controllers.controller('editor-controller', ['$scope', '$timeout', 'tutorial', 'tutorialNotificationChannel', function ($scope, $timeout, tutorial, tutorialNotificationChannel) {
+Application.Controllers.controller('editor-controller', ['$scope', '$timeout', 'tutorial', 'tutorialNotificationChannel', 'Angularytics', function ($scope, $timeout, tutorial, tutorialNotificationChannel, Angularytics) {
     $scope.sourceFiles = [];
     $scope.currentIndex = 0;
     $scope.currentSource = '';
@@ -56,6 +56,7 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
         $scope.setOptionsForFileType($scope.currentFile.mode);
 
         $scope.filesUpdated = !$scope.filesUpdated;
+        Angularytics.trackEvent("View Source File", $scope.currentFile.name);
     };
 
     $scope.setOptionsForFileType = function (mode) {

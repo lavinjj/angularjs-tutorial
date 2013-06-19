@@ -1,6 +1,6 @@
 'use strict';
 
-Application.Controllers.controller('slide-controller', ['$scope', '$http', 'tutorial', 'tutorialNotificationChannel', function($scope, $http, tutorial, tutorialNotificationChannel) {
+Application.Controllers.controller('slide-controller', ['$scope', '$http', 'tutorial', 'tutorialNotificationChannel', 'Angularytics', function($scope, $http, tutorial, tutorialNotificationChannel, Angularytics) {
     $scope.Title = 'AngularJS Unit Testing';
     $scope.currentPage = 0;
     $scope.slides = [];
@@ -10,6 +10,7 @@ Application.Controllers.controller('slide-controller', ['$scope', '$http', 'tuto
     $scope.onSlidesLoadedHandler = function(slides){
         $scope.currentPage = 0;
         $scope.slides = slides;
+        Angularytics.trackEvent("View Slide", $scope.currentPage + 1);
         $scope.loadSlide($scope.currentPage);
     };
 
@@ -43,6 +44,7 @@ Application.Controllers.controller('slide-controller', ['$scope', '$http', 'tuto
         if ($scope.currentPage > 0) {
             $scope.currentPage--;
         }
+        Angularytics.trackEvent("View Slide", $scope.currentPage + 1);
         $scope.loadSlide($scope.currentPage);
     };
 
@@ -50,11 +52,13 @@ Application.Controllers.controller('slide-controller', ['$scope', '$http', 'tuto
         if ($scope.currentPage < $scope.slides.length - 1) {
             $scope.currentPage++;
         }
+        Angularytics.trackEvent("View Slide", $scope.currentPage + 1);
         $scope.loadSlide($scope.currentPage);
     };
 
     $scope.setPage = function () {
         $scope.currentPage = this.n;
+        Angularytics.trackEvent("View Slide", $scope.currentPage + 1);
         $scope.loadSlide($scope.currentPage);
     };
 }]);

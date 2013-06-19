@@ -80,6 +80,8 @@ Application.Directives.
                             $('iframe').css('width', '100%');
                             $('iframe').css('border', '0px;');
                         });
+                    } else {
+                        elm.empty();
                     }
                 };
 
