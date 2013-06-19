@@ -5,7 +5,7 @@ Application.Controllers.controller('results-controller', ['$scope', 'tutorialNot
     $scope.currentSlide = null;
 
     $scope.onSlideChangedHandler = function (slide) {
-        $scope.sourceFiles = [];
+        $scope.sourceFiles = [{}];
         $scope.currentSlide = slide;
     };
 

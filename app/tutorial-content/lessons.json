@@ -6,33 +6,15 @@
         "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
     },
     {
+        "name": "Communicating Between AngularJS Components",
+        "image": "./tutorial-content/e2e-testing-intro/AngularLogo.png",
+        "description": "In this lesson we are going to cover different ways to communicate between AngularJS components. When complete you will be able to use various patterns to send data and messages between AngularJS Controllers, Directives and Services.",
+        "slideUrl" : "./tutorial-content/pubsub/slides.json"
+    },
+    {
         "name": "Unit Testing Basics",
         "image": "./tutorial-content/unit-testing-intro/AngularLogo.png",
         "description": "In this lesson you will learn the basics of writing unit tests for AngularJS components.",
         "slideUrl" : "./tutorial-content/unit-testing-intro/slides.json"
-    },
-    {
-        "name": "End to End Testing Intro",
-        "image": "./tutorial-content/e2e-testing-intro/AngularLogo.png",
-        "description": "In this lesson you will learn how to write unit tests for AngularJS Controllers.",
-        "slideUrl" : "./tutorial-content/e2e-testing-intro/slides.json"
-    },
-    {
-        "name": "Unit Testing Directives",
-        "image": "./tutorial-content/gravatar-directive/AngularLogo.png",
-        "description": "In this lesson you will learn how to write unit tests for AngularJS Directives.",
-        "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
-    },
-    {
-        "name": "Unit Testing Services",
-        "image": "./tutorial-content/gravatar-directive/AngularLogo.png",
-        "description": "In this lesson you will learn how to write unit tests for AngularJS Services.",
-        "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
-    },
-    {
-        "name": "End to End Testing Basics",
-        "image": "./tutorial-content/gravatar-directive/AngularLogo.png",
-        "description": "In this lesson you will learn basics of writing unit tests for AngularJS Applications.",
-        "slideUrl" : "./tutorial-content/gravatar-directive/slides.json"
     }
 ]
