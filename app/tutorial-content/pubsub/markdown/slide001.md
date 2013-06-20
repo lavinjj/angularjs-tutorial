@@ -1,8 +1,9 @@
 The AngularJS Scope type has a set of methods to send messages along the scope hierarchy:
 
-$broadcast - used to send messages down the scope chain.
-$emit - used to send messages up the scope chain.
-$on - used to watch for particular messages that may be either broadcasted or emitted.
+`$broadcast - used to send messages down the scope chain.`
+`$emit - used to send messages up the scope chain.`
+`$on - used to watch for particular messages that may be either broadcasted or emitted.`
+
 
 You call either $broadcast or $emit using the following format:
 
