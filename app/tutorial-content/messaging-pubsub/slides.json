@@ -1,0 +1,162 @@
+[
+    {
+        "title": "Using Patterns to Improve Our Code",
+        "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide004.md",
+        "code": [],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "title": "We Need a Channel to Communicate Through",
+        "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide005.md",
+        "code": [
+            {
+                "name": "requestNotificationChannel.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide005.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "title": "Publishing a Message",
+        "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide006.md",
+        "code": [
+            {
+                "name": "dataservice.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide006.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "title": "Subscribing to Notification Events",
+        "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide007.md",
+        "code": [
+            {
+                "name": "view1-controller.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide007.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "title": "Controller to Controller Communication",
+        "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide008.md",
+        "code": [
+            {
+                "name": "view2-controller.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide008.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "title": "Always Have Well Documented Interfaces",
+        "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide009.md",
+        "code": [],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "title": "Exercise 3",
+        "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide010.md",
+        "code": [
+            {
+                "name": "app.html",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-html.html",
+                "index": 1,
+                "mode": "text/html"
+            },
+            {
+                "name": "app.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-app.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "requestNotificationChannel.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-service.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "requestNotificationChannel hint",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-hinta.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "controller-a.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-controllera.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller-a hint",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-hintb.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "controller-b.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-controllerb.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller-b hint",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-hintc.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "bootstrap.js",
+                "url": "./tutorial-content/messaging-pubsub/code/slide010-bootstrap.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "./tutorial-content/messaging-pubsub/html/starter.html",
+        "cssfiles": [
+            "lib/bootstrap/css/bootstrap.min.css",
+            "lib/bootstrap/css/bootstrap-responsive.min.css"
+        ],
+        "javascriptFiles": [
+            "lib/jquery/jquery-1.10.0.js",
+            "lib/bootstrap/js/bootstrap.js",
+            "lib/angular/angular.js"
+        ],
+        "allowAddFile": false,
+        "enableRun": true
+    }
+]

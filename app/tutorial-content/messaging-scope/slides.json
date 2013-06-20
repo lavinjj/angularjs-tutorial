@@ -1,0 +1,138 @@
+[
+    {
+        "title": " Scope Based Messaging",
+        "markdownUrl": "./tutorial-content/messaging-scope/markdown/slide001.md",
+        "code": [],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "title": "Exercise 1",
+        "markdownUrl": "./tutorial-content/messaging-scope/markdown/slide002.md",
+        "code": [
+            {
+                "name": "app.js",
+                "url": "./tutorial-content/messaging-scope/code/slide002-app.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller-a.js",
+                "url": "./tutorial-content/messaging-scope/code/slide002-controllera.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller a hint",
+                "url": "./tutorial-content/messaging-scope/code/slide002-hinta.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "controller-b.js",
+                "url": "./tutorial-content/messaging-scope/code/slide002-controllerb.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller b hint",
+                "url": "./tutorial-content/messaging-scope/code/slide002-hintb.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "app.html",
+                "url": "./tutorial-content/messaging-scope/code/slide002-html.html",
+                "index": 1,
+                "mode": "text/html"
+            },
+            {
+                "name": "bootstrap.js",
+                "url": "./tutorial-content/messaging-scope/code/slide002-bootstrap.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "./tutorial-content/messaging-scope/html/starter.html",
+        "cssfiles": [
+            "lib/bootstrap/css/bootstrap.min.css",
+            "lib/bootstrap/css/bootstrap-responsive.min.css"
+        ],
+        "javascriptFiles": [
+            "lib/jquery/jquery-1.10.0.js",
+            "lib/bootstrap/js/bootstrap.js",
+            "lib/angular/angular.js"
+        ],
+        "allowAddFile": false,
+        "enableRun": true
+    },
+    {
+        "title": "Exercise 2",
+        "markdownUrl": "./tutorial-content/messaging-scope/markdown/slide003.md",
+        "code": [
+            {
+                "name": "app.js",
+                "url": "./tutorial-content/messaging-scope/code/slide003-app.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller.js",
+                "url": "./tutorial-content/messaging-scope/code/slide003-controller.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller hint",
+                "url": "./tutorial-content/messaging-scope/code/slide003-hinta.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "directive.js",
+                "url": "./tutorial-content/messaging-scope/code/slide003-directive.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "directive hint",
+                "url": "./tutorial-content/messaging-scope/code/slide003-hintb.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "app.html",
+                "url": "./tutorial-content/messaging-scope/code/slide003-html.html",
+                "index": 1,
+                "mode": "text/html"
+            },
+            {
+                "name": "directive-partial.html",
+                "url": "./tutorial-content/messaging-scope/code/slide003-partiala.html",
+                "index": 1,
+                "mode": "hint-text/html"
+            },
+            {
+                "name": "bootstrap.js",
+                "url": "./tutorial-content/messaging-scope/code/slide003-bootstrap.js",
+                "index": 1,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "./tutorial-content/messaging-scope/html/starter.html",
+        "cssfiles": [
+            "lib/bootstrap/css/bootstrap.min.css",
+            "lib/bootstrap/css/bootstrap-responsive.min.css"
+        ],
+        "javascriptFiles": [
+            "lib/jquery/jquery-1.10.0.js",
+            "lib/bootstrap/js/bootstrap.js",
+            "lib/angular/angular.js"
+        ],
+        "allowAddFile": false,
+        "enableRun": true
+    }
+]

@@ -41,12 +41,15 @@
         display: block;
     }</style>
 </head>
-<body style="">
+<body id='myApp'>
 <!-- container -->
-<h2>Enterprise Crew</h2>
-<hr/>
-<div id="myApp" class="container-fluid">
-    <div class="span5" ng-controller="ControllerA">
+<div class="container-fluid">
+    <h2>Enterprise Crew</h2>
+    <hr/>
+    <div ng-view>&nbsp;</div>
+</div>
+<script type="text/ng-template" id="controllera-partial.html">
+    <div class="span12" ng-controller="ControllerA">
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -66,8 +69,9 @@
             </tbody>
         </table>
     </div>
-    <div class="span1">&nbsp;</div>
-    <div class="span5" ng-controller="ControllerB">
+</script>
+<script type="text/ng-template" id="controllerb-partial.html">
+    <div class="span12" ng-controller="ControllerB">
         <form class="form-horizontal" ng-show="person">
             <fieldset>
                 <div class="control-group">
@@ -101,7 +105,7 @@
             </fieldset>
         </form>
     </div>
-</div>
+</script>
 <!-- /container -->
 <!-- Le javascript
 ================================================== -->
@@ -112,47 +116,19 @@
 <script>
     window.onload = function () {
         try {
-            angular.module('myApp', []);
+            angular.module('myApp', [])
+                    .config(['$routeProvider', function ($routeProvider) {
+                        $routeProvider.
+                                when('/', {templateUrl: 'controllera-partial.html'}).
+                                when('/edit/:index', {templateUrl: 'controllerb-partial.html'}).
+                                otherwise({templateUrl: 'controllera-partial.html'});
 
-            angular.module('myApp')
-                // define the request notification channel for the pub/sub service
-                    .factory('requestNotificationChannel', ['$rootScope', function ($rootScope) {
-                        // private notification messages
-                        var _EDIT_DATA_ = '_EDIT_DATA_';
-                        var _DATA_UPDATED_ = '_DATA_UPDATED_';
-
-                        // publish edit data notification
-                        var editData = function (item) {
-                            $rootScope.$broadcast(_EDIT_DATA_, {item: item});
-                        };
-                        //subscribe to edit data notification
-                        var onEditData = function ($scope, handler) {
-                            $scope.$on(_EDIT_DATA_, function (event, args) {
-                                handler(args.item);
-                            });
-                        };
-                        // publish data changed notification
-                        var dataUpdated = function (item) {
-                            $rootScope.$broadcast(_DATA_UPDATED_, {item: item});
-                        };
-                        // subscribe to data changed notification
-                        var onDataUpdated = function ($scope, handler) {
-                            $scope.$on(_DATA_UPDATED_, function (event, args) {
-                                handler(args.item);
-                            });
-                        };
-                        // return the publicly accessible methods
-                        return {
-                            editData: editData,
-                            onEditData: onEditData,
-                            dataUpdated: dataUpdated,
-                            onDataUpdated: onDataUpdated
-                        };
                     }]);
 
             angular.module('myApp')
-                    .controller('ControllerA', ['$scope', 'requestNotificationChannel', function ($scope, requestNotificationChannel) {
-                        $scope.persons = [
+                // define the request notification channel for the pub/sub service
+                    .factory('dataService', [ function () {
+                        var persons = [
                             {
                                 name: 'Jean Luc Picarrd',
                                 email: 'picarrd@ncc1701.federation.us',
@@ -175,43 +151,51 @@
                             }
                         ];
 
-                        $scope.selectedIndex = 0;
+                        var getPersons = function () {
+                            return persons;
+                        };
 
-                        var onDataUpdatedHandler = function(item) {
-                            $scope.persons[$scope.selectedIndex] = item;
-                        }
+                        var getPerson = function (index) {
+                            return angular.copy(persons[index]);
+                        };
 
-                        requestNotificationChannel.onDataUpdated($scope, onDataUpdatedHandler);
+                        var updatePerson = function (index, person) {
+                            persons[index] = person;
+                        };
 
-                        $scope.edit = function(index){
-                            $scope.selectedIndex = index;
-                            // copy the object so updates are not reflected until updated
-                            var item = angular.copy($scope.persons[index]);
-                            requestNotificationChannel.editData(item);
+                        // return the publicly accessible methods
+                        return {
+                            getPersons: getPersons,
+                            getPerson: getPerson,
+                            updatePerson: updatePerson
                         };
                     }]);
 
             angular.module('myApp')
-                    .controller('ControllerB', ['$scope', 'requestNotificationChannel', function ($scope, requestNotificationChannel) {
-                        $scope.person = null;
+                    .controller('ControllerA', ['$scope', '$location', 'dataService', function ($scope, $location, dataService) {
+                        $scope.persons = dataService.getPersons();
 
-                        var onEditDataHandler = function(item) {
-                            $scope.person = item;
+                        $scope.edit = function (index) {
+                            $location.path('/edit/' + index);
                         };
+                    }]);
 
-                        requestNotificationChannel.onEditData($scope, onEditDataHandler);
+            angular.module('myApp')
+                    .controller('ControllerB', ['$scope', '$routeParams', '$location', 'dataService', function ($scope, $routeParams, $location, dataService) {
+                        $scope.person = dataService.getPerson($routeParams['index']);
 
-                        $scope.save = function(){
-                            requestNotificationChannel.dataUpdated($scope.person);
+                        $scope.save = function () {
+                            dataService.updatePerson($routeParams['index'], $scope.person);
+                            $location.path('/')
                             $scope.person = null;
                         };
 
-                        $scope.cancel = function(){
+                        $scope.cancel = function () {
                             $scope.person = null;
                         };
                     }]);
 
-            angular.element($('#myApp')).ready(function () {
+            angular.element($('#myApp')).ready(function() {
                 angular.bootstrap($('#myApp'), ['myApp']);
             });
 

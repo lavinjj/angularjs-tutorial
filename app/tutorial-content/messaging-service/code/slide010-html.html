@@ -1,0 +1,61 @@
+<h2>Enterprise Crew</h2>
+<hr />
+<div id="myApp" class="container-fluid">
+    <div class="span5" ng-controller="ControllerA">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Bio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="person in persons">
+                <td>
+                    <i class="icon-edit" ng-click="edit($index)"></i>
+                </td>
+                <td>{{person.name}}</td>
+                <td>{{person.email}}</td>
+                <td>{{person.biography}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="span1">&nbsp;</div>
+    <div class="span5" ng-controller="ControllerB">
+        <form class="form-horizontal" ng-show="person">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="inputName">Name</label>
+
+                    <div class="controls">
+                        <input class="input-large" type="text" id="inputName" placeholder="Email"
+                               ng-model="person.name">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">Email</label>
+
+                    <div class="controls">
+                        <input class="input-large" type="text" id="inputEmail" placeholder="Email"
+                               ng-model="person.email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputBio">Bio</label>
+
+                    <div class="controls">
+                        <input class="input-xxlarge" type="text" id="inputBio" placeholder="Email"
+                               ng-model="person.biography">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" ng-click="save()">Save</button>
+                    <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

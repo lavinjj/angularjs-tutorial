@@ -1,7 +1,7 @@
 [
     {
         "title": " Scope Based Messaging",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide001.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide001.md",
         "code": [],
         "htmlTemplate": "",
         "cssfiles": [],
@@ -11,52 +11,52 @@
     },
     {
         "title": "Exercise 1",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide002.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide002.md",
         "code": [
             {
                 "name": "app.js",
-                "url": "./tutorial-content/pubsub/code/slide002-app.js",
+                "url": "./tutorial-content/messaging-service/code/slide002-app.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "controller-a.js",
-                "url": "./tutorial-content/pubsub/code/slide002-controllera.js",
+                "url": "./tutorial-content/messaging-service/code/slide002-controllera.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "controller a hint",
-                "url": "./tutorial-content/pubsub/code/slide002-hinta.js",
+                "url": "./tutorial-content/messaging-service/code/slide002-hinta.js",
                 "index": 2,
                 "mode": "hint-javascript"
             },
             {
                 "name": "controller-b.js",
-                "url": "./tutorial-content/pubsub/code/slide002-controllerb.js",
+                "url": "./tutorial-content/messaging-service/code/slide002-controllerb.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "controller b hint",
-                "url": "./tutorial-content/pubsub/code/slide002-hintb.js",
+                "url": "./tutorial-content/messaging-service/code/slide002-hintb.js",
                 "index": 2,
                 "mode": "hint-javascript"
             },
             {
                 "name": "app.html",
-                "url": "./tutorial-content/pubsub/code/slide002-html.html",
+                "url": "./tutorial-content/messaging-service/code/slide002-html.html",
                 "index": 1,
                 "mode": "text/html"
             },
             {
                 "name": "bootstrap.js",
-                "url": "./tutorial-content/pubsub/code/slide002-bootstrap.js",
+                "url": "./tutorial-content/messaging-service/code/slide002-bootstrap.js",
                 "index": 1,
                 "mode": "javascript"
             }
         ],
-        "htmlTemplate": "./tutorial-content/pubsub/html/starter.html",
+        "htmlTemplate": "./tutorial-content/messaging-service/html/starter.html",
         "cssfiles": [
             "lib/bootstrap/css/bootstrap.min.css",
             "lib/bootstrap/css/bootstrap-responsive.min.css"
@@ -71,58 +71,58 @@
     },
     {
         "title": "Exercise 2",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide003.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide003.md",
         "code": [
             {
                 "name": "app.js",
-                "url": "./tutorial-content/pubsub/code/slide003-app.js",
+                "url": "./tutorial-content/messaging-service/code/slide003-app.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "controller.js",
-                "url": "./tutorial-content/pubsub/code/slide003-controller.js",
+                "url": "./tutorial-content/messaging-service/code/slide003-controller.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "controller hint",
-                "url": "./tutorial-content/pubsub/code/slide003-hinta.js",
+                "url": "./tutorial-content/messaging-service/code/slide003-hinta.js",
                 "index": 2,
                 "mode": "hint-javascript"
             },
             {
                 "name": "directive.js",
-                "url": "./tutorial-content/pubsub/code/slide003-directive.js",
+                "url": "./tutorial-content/messaging-service/code/slide003-directive.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "directive hint",
-                "url": "./tutorial-content/pubsub/code/slide003-hintb.js",
+                "url": "./tutorial-content/messaging-service/code/slide003-hintb.js",
                 "index": 2,
                 "mode": "hint-javascript"
             },
             {
                 "name": "app.html",
-                "url": "./tutorial-content/pubsub/code/slide003-html.html",
+                "url": "./tutorial-content/messaging-service/code/slide003-html.html",
                 "index": 1,
                 "mode": "text/html"
             },
             {
                 "name": "directive-partial.html",
-                "url": "./tutorial-content/pubsub/code/slide003-partiala.html",
+                "url": "./tutorial-content/messaging-service/code/slide003-partiala.html",
                 "index": 1,
                 "mode": "hint-text/html"
             },
             {
                 "name": "bootstrap.js",
-                "url": "./tutorial-content/pubsub/code/slide003-bootstrap.js",
+                "url": "./tutorial-content/messaging-service/code/slide003-bootstrap.js",
                 "index": 1,
                 "mode": "javascript"
             }
         ],
-        "htmlTemplate": "./tutorial-content/pubsub/html/starter.html",
+        "htmlTemplate": "./tutorial-content/messaging-service/html/starter.html",
         "cssfiles": [
             "lib/bootstrap/css/bootstrap.min.css",
             "lib/bootstrap/css/bootstrap-responsive.min.css"
@@ -137,7 +137,7 @@
     },
     {
         "title": "Using Patterns to Improve Our Code",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide004.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide004.md",
         "code": [],
         "htmlTemplate": "",
         "cssfiles": [],
@@ -147,11 +147,11 @@
     },
     {
         "title": "We Need a Channel to Communicate Through",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide005.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide005.md",
         "code": [
             {
                 "name": "requestNotificationChannel.js",
-                "url": "./tutorial-content/pubsub/code/slide005.js",
+                "url": "./tutorial-content/messaging-service/code/slide005.js",
                 "index": 1,
                 "mode": "javascript"
             }
@@ -164,11 +164,11 @@
     },
     {
         "title": "Publishing a Message",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide006.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide006.md",
         "code": [
             {
                 "name": "dataservice.js",
-                "url": "./tutorial-content/pubsub/code/slide006.js",
+                "url": "./tutorial-content/messaging-service/code/slide006.js",
                 "index": 1,
                 "mode": "javascript"
             }
@@ -181,11 +181,11 @@
     },
     {
         "title": "Subscribing to Notification Events",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide007.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide007.md",
         "code": [
             {
                 "name": "view1-controller.js",
-                "url": "./tutorial-content/pubsub/code/slide007.js",
+                "url": "./tutorial-content/messaging-service/code/slide007.js",
                 "index": 1,
                 "mode": "javascript"
             }
@@ -198,11 +198,11 @@
     },
     {
         "title": "Controller to Controller Communication",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide008.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide008.md",
         "code": [
             {
                 "name": "view2-controller.js",
-                "url": "./tutorial-content/pubsub/code/slide008.js",
+                "url": "./tutorial-content/messaging-service/code/slide008.js",
                 "index": 1,
                 "mode": "javascript"
             }
@@ -215,7 +215,7 @@
     },
     {
         "title": "Always Have Well Documented Interfaces",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide009.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide009.md",
         "code": [],
         "htmlTemplate": "",
         "cssfiles": [],
@@ -225,64 +225,64 @@
     },
     {
         "title": "Exercise 3",
-        "markdownUrl": "./tutorial-content/pubsub/markdown/slide010.md",
+        "markdownUrl": "./tutorial-content/messaging-service/markdown/slide010.md",
         "code": [
             {
                 "name": "app.html",
-                "url": "./tutorial-content/pubsub/code/slide010-html.html",
+                "url": "./tutorial-content/messaging-service/code/slide010-html.html",
                 "index": 1,
                 "mode": "text/html"
             },
             {
                 "name": "app.js",
-                "url": "./tutorial-content/pubsub/code/slide010-app.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-app.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "requestNotificationChannel.js",
-                "url": "./tutorial-content/pubsub/code/slide010-service.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-service.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "requestNotificationChannel hint",
-                "url": "./tutorial-content/pubsub/code/slide010-hinta.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-hinta.js",
                 "index": 2,
                 "mode": "hint-javascript"
             },
             {
                 "name": "controller-a.js",
-                "url": "./tutorial-content/pubsub/code/slide010-controllera.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-controllera.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "controller-a hint",
-                "url": "./tutorial-content/pubsub/code/slide010-hintb.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-hintb.js",
                 "index": 2,
                 "mode": "hint-javascript"
             },
             {
                 "name": "controller-b.js",
-                "url": "./tutorial-content/pubsub/code/slide010-controllerb.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-controllerb.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
                 "name": "controller-b hint",
-                "url": "./tutorial-content/pubsub/code/slide010-hintc.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-hintc.js",
                 "index": 2,
                 "mode": "hint-javascript"
             },
             {
                 "name": "bootstrap.js",
-                "url": "./tutorial-content/pubsub/code/slide010-bootstrap.js",
+                "url": "./tutorial-content/messaging-service/code/slide010-bootstrap.js",
                 "index": 1,
                 "mode": "javascript"
             }
         ],
-        "htmlTemplate": "./tutorial-content/pubsub/html/starter.html",
+        "htmlTemplate": "./tutorial-content/messaging-service/html/starter.html",
         "cssfiles": [
             "lib/bootstrap/css/bootstrap.min.css",
             "lib/bootstrap/css/bootstrap-responsive.min.css"
