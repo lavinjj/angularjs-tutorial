@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--[if lt IE 8]>
+<html ng-app="slide" xmlns:ng="http://angularjs.org" class="ie lt-ie8 oldIE" lang="en"> <![endif]-->
+<!--[if lt IE 9]>
+<html ng-app="slide" xmlns:ng="http://angularjs.org" class="ie lt-ie9 oldIE" lang="en"> <![endif]-->
+<!--[if IE 9]>
+<html ng-app="slide" xmlns:ng="http://angularjs.org" class="ie ie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="" lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <style>
+        [ng-cloak] {
+            display: none;
+        }
+    </style>
+    <title>Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AngularJS Tutorial">
+    <meta name="author" content="Jim Lavin">
+    <!-- Le styles -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <style type="text/css">@charset "UTF-8";
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none;
+    }
+
+    ng\:form {
+        display: block;
+    }</style>
+</head>
+<body style="">
+<!-- container -->
+<h2>Enterprise Crew</h2>
+<hr/>
+<div id="myApp" class="container-fluid">
+    <div class="span5" ng-controller="ControllerA">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Bio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="person in persons">
+                <td><i class="icon-edit" ng-click="edit($index)"></i></td>
+                <td>{{person.name}}</td>
+                <td>{{person.email}}</td>
+                <td>{{person.biography}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="span1">&nbsp;</div>
+    <div class="span5" ng-controller="ControllerB">
+        <form class="form-horizontal" ng-show="person">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="inputName">Name</label>
+
+                    <div class="controls">
+                        <input class="input-large" type="text" id="inputName" placeholder="Email"
+                               ng-model="person.name">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">Email</label>
+
+                    <div class="controls">
+                        <input class="input-large" type="text" id="inputEmail" placeholder="Email"
+                               ng-model="person.email">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputBio">Bio</label>
+
+                    <div class="controls">
+                        <input class="input-xxlarge" type="text" id="inputBio" placeholder="Email"
+                               ng-model="person.biography">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-primary" ng-click="save()">Save</button>
+                    <button class="btn btn-danger" ng-click="cancel()">Cancel</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<!-- /container -->
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="lib/jquery/jquery-1.10.0.js"></script>
+<script src="lib/bootstrap/js/bootstrap.js"></script>
+<script src="lib/angular/angular.js"></script>
+<script>
+    window.onload = function () {
+        try {
+            angular.module('myApp', []);
+
+            angular.module('myApp')
+                // define the request notification channel for the pub/sub service
+                    .factory('requestNotificationChannel', ['$rootScope', function ($rootScope) {
+                        // private notification messages
+                        var _EDIT_DATA_ = '_EDIT_DATA_';
+                        var _DATA_UPDATED_ = '_DATA_UPDATED_';
+
+                        // publish edit data notification
+                        var editData = function (item) {
+                            $rootScope.$broadcast(_EDIT_DATA_, {item: item});
+                        };
+                        //subscribe to edit data notification
+                        var onEditData = function ($scope, handler) {
+                            $scope.$on(_EDIT_DATA_, function (event, args) {
+                                handler(args.item);
+                            });
+                        };
+                        // publish data changed notification
+                        var dataUpdated = function (item) {
+                            $rootScope.$broadcast(_DATA_UPDATED_, {item: item});
+                        };
+                        // subscribe to data changed notification
+                        var onDataUpdated = function ($scope, handler) {
+                            $scope.$on(_DATA_UPDATED_, function (event, args) {
+                                handler(args.item);
+                            });
+                        };
+                        // return the publicly accessible methods
+                        return {
+                            editData: editData,
+                            onEditData: onEditData,
+                            dataUpdated: dataUpdated,
+                            onDataUpdated: onDataUpdated
+                        };
+                    }]);
+
+            angular.module('myApp')
+                    .controller('ControllerA', ['$scope', 'requestNotificationChannel', function ($scope, requestNotificationChannel) {
+                        $scope.persons = [
+                            {
+                                name: 'Jean Luc Picarrd',
+                                email: 'picarrd@ncc1701.federation.us',
+                                biography: 'Captain of the Enterprise'
+                            },
+                            {
+                                name: 'William Riker',
+                                email: 'riker@ncc1701.federation.us',
+                                biography: 'First Officer of the Enterprise'
+                            },
+                            {
+                                name: 'Data',
+                                email: 'data@ncc1701.federation.us',
+                                biography: 'Android on the Enterprise'
+                            },
+                            {
+                                name: 'Geordi laForge',
+                                email: 'laforge@ncc1701.federation.us',
+                                biography: 'Chief Engineer of the Enterprise'
+                            }
+                        ];
+
+                        $scope.selectedIndex = 0;
+
+                        var onDataUpdatedHandler = function(item) {
+                            $scope.persons[$scope.selectedIndex] = item;
+                        }
+
+                        requestNotificationChannel.onDataUpdated($scope, onDataUpdatedHandler);
+
+                        $scope.edit = function(index){
+                            $scope.selectedIndex = index;
+                            // copy the object so updates are not reflected until updated
+                            var item = angular.copy($scope.persons[index]);
+                            requestNotificationChannel.editData(item);
+                        };
+                    }]);
+
+            angular.module('myApp')
+                    .controller('ControllerB', ['$scope', 'requestNotificationChannel', function ($scope, requestNotificationChannel) {
+                        $scope.person = null;
+
+                        var onEditDataHandler = function(item) {
+                            $scope.person = item;
+                        };
+
+                        requestNotificationChannel.onEditData($scope, onEditDataHandler);
+
+                        $scope.save = function(){
+                            requestNotificationChannel.dataUpdated($scope.person);
+                            $scope.person = null;
+                        };
+
+                        $scope.cancel = function(){
+                            $scope.person = null;
+                        };
+                    }]);
+
+            angular.element($('#myApp')).ready(function () {
+                angular.bootstrap($('#myApp'), ['myApp']);
+            });
+
+        } catch (e) {
+            alert('Not working: ' + e)
+        }
+    }</script>
+
+
+</body>
+</html>

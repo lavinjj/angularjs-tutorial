@@ -1,7 +1,17 @@
-/**
- * Created with JetBrains WebStorm.
- * User: jimlavin
- * Date: 6/18/13
- * Time: 10:35 PM
- * To change this template use File | Settings | File Templates.
- */
+angular.module('myApp')
+    .controller('ControllerA', ['$scope', function($scope) {
+        $scope.currentQuestion = {
+            question: 'Select One: AngularJS ...',
+            answers: [
+                {value: 'A', text: 'Rocks!'},
+                {value: 'B', text: 'Is Awsome Sauce!'},
+                {value: 'C', text: 'FTW!'},
+                {value: 'D', text: 'All of the above'}
+            ]
+        };
+        $scope.selectedAnswer = '';
+
+        $scope.$on('_USER_SELECTION_', function(evt, args){
+            $scope.selectedAnswer = args['selection'];
+        });
+    }]);

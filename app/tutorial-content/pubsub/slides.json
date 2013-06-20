@@ -44,14 +44,8 @@
                 "mode": "hint-javascript"
             },
             {
-                "name": "controllera-partial.html",
-                "url": "./tutorial-content/pubsub/code/slide002-partiala.html",
-                "index": 1,
-                "mode": "text/html"
-            },
-            {
-                "name": "controllerb-partial.html",
-                "url": "./tutorial-content/pubsub/code/slide002-partialb.html",
+                "name": "app.html",
+                "url": "./tutorial-content/pubsub/code/slide002-html.html",
                 "index": 1,
                 "mode": "text/html"
             },
@@ -110,16 +104,16 @@
                 "mode": "hint-javascript"
             },
             {
-                "name": "controller-partial.html",
-                "url": "./tutorial-content/pubsub/code/slide003-partiala.html",
+                "name": "app.html",
+                "url": "./tutorial-content/pubsub/code/slide003-html.html",
                 "index": 1,
                 "mode": "text/html"
             },
             {
                 "name": "directive-partial.html",
-                "url": "./tutorial-content/pubsub/code/slide003-partialb.html",
+                "url": "./tutorial-content/pubsub/code/slide003-partiala.html",
                 "index": 1,
-                "mode": "text/html"
+                "mode": "hint-text/html"
             },
             {
                 "name": "bootstrap.js",
@@ -234,38 +228,56 @@
         "markdownUrl": "./tutorial-content/pubsub/markdown/slide010.md",
         "code": [
             {
-                "name": "app.js",
-                "url": "./tutorial-content/pubsub/code/slide007-app.js",
-                "index": 1,
-                "mode": "javascript"
-            },
-            {
-                "name": "gravatar-directive.js",
-                "url": "./tutorial-content/pubsub/code/slide007-directive.js",
-                "index": 1,
-                "mode": "javascript"
-            },
-            {
-                "name": "hint",
-                "url": "./tutorial-content/pubsub/code/slide007-hint.js",
-                "index": 2,
-                "mode": "hint-javascript"
-            },
-            {
-                "name": "app-partial.html",
-                "url": "./tutorial-content/pubsub/code/slide007-html.html",
+                "name": "app.html",
+                "url": "./tutorial-content/pubsub/code/slide010-html.html",
                 "index": 1,
                 "mode": "text/html"
             },
             {
-                "name": "md5-service.js",
-                "url": "./tutorial-content/pubsub/code/slide007-service.js",
+                "name": "app.js",
+                "url": "./tutorial-content/pubsub/code/slide010-app.js",
                 "index": 1,
                 "mode": "javascript"
             },
             {
+                "name": "requestNotificationChannel.js",
+                "url": "./tutorial-content/pubsub/code/slide010-service.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "requestNotificationChannel hint",
+                "url": "./tutorial-content/pubsub/code/slide010-hinta.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "controller-a.js",
+                "url": "./tutorial-content/pubsub/code/slide010-controllera.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller-a hint",
+                "url": "./tutorial-content/pubsub/code/slide010-hintb.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "controller-b.js",
+                "url": "./tutorial-content/pubsub/code/slide010-controllerb.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "controller-b hint",
+                "url": "./tutorial-content/pubsub/code/slide010-hintc.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
                 "name": "bootstrap.js",
-                "url": "./tutorial-content/pubsub/code/slide007-bootstrap.js",
+                "url": "./tutorial-content/pubsub/code/slide010-bootstrap.js",
                 "index": 1,
                 "mode": "javascript"
             }
