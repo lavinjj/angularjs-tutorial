@@ -1,6 +1,7 @@
 angular.module('myApp')
-    .controller('ControllerA', ['$scope', 'requestNotificationChannel', function ($scope, requestNotificationChannel) {
-        $scope.persons = [
+    // define the request notification channel for the pub/sub service
+    .factory('persons', [ function () {
+        var persons = [
             {
                 name: 'Jean Luc Picarrd',
                 email: 'picarrd@ncc1701.federation.us',
@@ -23,18 +24,16 @@ angular.module('myApp')
             }
         ];
 
-        $scope.selectedIndex = 0;
+        // provide a method to return the persons array called getPersons
 
-        var onDataUpdatedHandler = function(item) {
-            $scope.persons[$scope.selectedIndex] = item;
-        }
+        // provide a method to get a single person by index called getPerson
 
-        requestNotificationChannel.onDataUpdated($scope, onDataUpdatedHandler);
+        // provide a method to update a single person by index called updatePerson
 
-        $scope.edit = function(index){
-            $scope.selectedIndex = index;
-            // copy the object so updates are not reflected until updated
-            var item = angular.copy($scope.persons[index]);
-            requestNotificationChannel.editData(item);
+        // return the publicly accessible methods
+        return {
+            getPersons: getPersons,
+            getPerson: getPerson,
+            updatePerson: updatePerson
         };
     }]);

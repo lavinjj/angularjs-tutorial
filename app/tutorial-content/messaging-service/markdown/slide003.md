@@ -1,15 +1,5 @@
-Let's try using Scope Based Messaging to emit an event notification from a directive to a parent controller whenever the user clicks on a button in the directive.
+We've now configured the $routeProvider to pass the index of the person we want to pull from the persons service and our 'personedit-controller' knows how to retrieve the index value of the person on which to edit. What we now is a way to tell our app which person to edit.
 
-For this exercise, we will create a controller and a directive.
+We do this in the 'personlist-controller', displayed on the right, by using the $location service to set the Url with the correct index. If you look at the 'edit' method the 'personlist-controller' appends the selected index to the Url.
 
-The controller will listen for an event message '\_USER\_SELECTION\_' and store the value passed as an argument to a local scope variable that will be bound to an array of answers and displayed on the screen.
-
-The directive will bind to an question object that has a question and upto five answers. It will display the questions and then the list of answers below the question. Whenever the user clicks one of the buttons the directive will emit an event message '\_USER\_SELECTION\_' and the number of the button clicked.
-
-To the right there are three source files. Modify the controller and directive jasvascript files so the directive emits the '\_USER\_SELECTION\_' message and the controller listens for the '\_USER\_SELECTION\_'  message.
-
-When complete, whenever the user clicks a button representing an answer the controller will display the answer in it's associated view.
-
-If you have problems, you can look at the hint.js file for the controller and directive to get an idea how the code should be written.
-
-When done click the Run button to run the example in the window on the bottom right.
+Now when the user clicks on the edit icon in the list, the 'personlist-controller' will change the Url to the edit screen with the proper index of the person to edit.

@@ -1,15 +1,15 @@
-Let's try using Scope Based Messaging to send data from one controller to another controller using the $broadcast method.
+One way to pass the index our component needs is to pass the index as part of the Url when we change views, 'http://myserver.mydowmain.com/#/person/1'. This is provides a Rest like interface we can use to navigate our app and provide information.
 
-For this exercise, we will create two controllers; ControllerA and ControllerB.
+To configure the $routeProvider we need to decorate the route with appropriate values. This can be seen in the app.js file to the right. Notice the second when clause. It includes the Url fragment '/person/:index' which means the $routeProvider will parse the Url and take the value that occupies the position of the word 'index' and store it to the $routeParams service so we can retrieve it in our component.
 
-ControllerA will be associated with a view that has an input field and a button which when clicked will take the value bound to the input field and broadcast it using the message '\_DATA\_UPDATED\_'.
+To retrieve the value in our component we need use the $routeProvider to pass data to our views by using the $routeParams provider. To access the $routeParams service we just need to add a dependency to our component as seen in the personedit-controller.js file to the right. We can then access the value by using either of the two methods below:
 
-ControllerB will be associated with a view that displays a scope variable in a H2 tag. It will also call the scope $on function to listen for the message '\_DATA\_UPDATED\_' and will set it's internal variable that is bound to the H2 tag with the value that is recieved in the arguments passed into the $on methods event handler.
+    $routeParams['Key'];
 
-To the right there are four source files. Modify the two controller javascript files so the first controller broadcasts the '\_DATA\_UPDATED\_' message with a data value and the second controller watches for the message and updates it's internal scope variable with the value passed as the message argument.
+    or
 
-When compelte, whenever a value is typed into the input field of the first controller and the update button is clicked, the second controller will display the value in te H2 tag of its associated view.
+    $routeParams.Key;
 
-If you have problems, you can look at the hint.js file for each controller to get an idea how the code should be written.
+You can see an example of it's usage in PersonEditController, it uses $routeParams['index'] to initialize the $scope.person variable and it uses the same values again when it makes a call to the persons service in the call to 'updatePerson'.
 
-When done click the Run button to run the example in the window on the bottom right.
+

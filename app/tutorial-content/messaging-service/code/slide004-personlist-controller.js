@@ -2,7 +2,5 @@ angular.module('myApp')
     .controller('PersonListController', ['$scope', '$location', 'persons', function ($scope, $location, persons) {
         $scope.persons = persons.getPersons();
 
-        $scope.edit = function (index) {
-            $location.path('/person/' + index);
-        };
+        // provide a method to change the Url to the person view with the index of the person to edit
     }]);

@@ -1,6 +1,7 @@
 angular.module('myApp')
-    .controller('ControllerA', ['$scope', function ($scope) {
-        $scope.persons = [
+    // define the request notification channel for the pub/sub service
+    .factory('persons', [ function () {
+        var persons = [
             {
                 name: 'Jean Luc Picarrd',
                 email: 'picarrd@ncc1701.federation.us',
@@ -23,14 +24,22 @@ angular.module('myApp')
             }
         ];
 
-        $scope.selectedIndex = 0;
+        var getPersons = function () {
+            return persons;
+        };
 
-        // add on update handling here
+        var getPerson = function (index) {
+            return angular.copy(persons[index]);
+        };
 
-        $scope.edit = function(index){
-            $scope.selectedIndex = index;
-            // copy the object so updates are not reflected until updated
-            var item = angular.copy($scope.persons[index]);
-            // add edit data call here
+        var updatePerson = function (index, person) {
+            persons[index] = person;
+        };
+
+        // return the publicly accessible methods
+        return {
+            getPersons: getPersons,
+            getPerson: getPerson,
+            updatePerson: updatePerson
         };
     }]);

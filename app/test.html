@@ -48,8 +48,8 @@
     <hr/>
     <div ng-view>&nbsp;</div>
 </div>
-<script type="text/ng-template" id="controllera-partial.html">
-    <div class="span12" ng-controller="ControllerA">
+<script type="text/ng-template" id="personlist-partial.html">
+    <div class="span12" ng-controller="PersonListController">
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -70,8 +70,8 @@
         </table>
     </div>
 </script>
-<script type="text/ng-template" id="controllerb-partial.html">
-    <div class="span12" ng-controller="ControllerB">
+<script type="text/ng-template" id="personedit-partial.html">
+    <div class="span12" ng-controller="PersonEditController">
         <form class="form-horizontal" ng-show="person">
             <fieldset>
                 <div class="control-group">
@@ -119,15 +119,15 @@
             angular.module('myApp', [])
                     .config(['$routeProvider', function ($routeProvider) {
                         $routeProvider.
-                                when('/', {templateUrl: 'controllera-partial.html'}).
-                                when('/edit/:index', {templateUrl: 'controllerb-partial.html'}).
-                                otherwise({templateUrl: 'controllera-partial.html'});
+                                when('/', {templateUrl: 'personlist-partial.html'}).
+                                when('/person/:index', {templateUrl: 'personedit-partial.html'}).
+                                otherwise({templateUrl: 'personlist-partial.html'});
 
                     }]);
 
             angular.module('myApp')
                 // define the request notification channel for the pub/sub service
-                    .factory('dataService', [ function () {
+                    .factory('persons', [ function () {
                         var persons = [
                             {
                                 name: 'Jean Luc Picarrd',
@@ -172,20 +172,20 @@
                     }]);
 
             angular.module('myApp')
-                    .controller('ControllerA', ['$scope', '$location', 'dataService', function ($scope, $location, dataService) {
-                        $scope.persons = dataService.getPersons();
+                    .controller('PersonListController', ['$scope', '$location', 'persons', function ($scope, $location, persons) {
+                        $scope.persons = persons.getPersons();
 
                         $scope.edit = function (index) {
-                            $location.path('/edit/' + index);
+                            $location.path('/person/' + index);
                         };
                     }]);
 
             angular.module('myApp')
-                    .controller('ControllerB', ['$scope', '$routeParams', '$location', 'dataService', function ($scope, $routeParams, $location, dataService) {
-                        $scope.person = dataService.getPerson($routeParams['index']);
+                    .controller('PersonEditController', ['$scope', '$routeParams', '$location', 'persons', function ($scope, $routeParams, $location, persons) {
+                        $scope.person = persons.getPerson($routeParams['index']);
 
                         $scope.save = function () {
-                            dataService.updatePerson($routeParams['index'], $scope.person);
+                            persons.updatePerson($routeParams['index'], $scope.person);
                             $location.path('/')
                             $scope.person = null;
                         };

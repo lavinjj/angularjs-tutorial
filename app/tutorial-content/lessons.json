@@ -13,7 +13,7 @@
         "name": "Scope based Messaging",
         "image": "./tutorial-content/AngularLogo.png",
         "description": "In this lesson we are going to cover how to use the messaging methods provided by the Scope object to communicate between AngularJS components.",
-        "slideUrl" : "./tutorial-content/messaging-pubsub/slides.json"
+        "slideUrl" : "./tutorial-content/messaging-scope/slides.json"
     },
     {
         "category" : "Communications",
@@ -21,7 +21,7 @@
         "name": "Service based Messaging",
         "image": "./tutorial-content/AngularLogo.png",
         "description": "In this lesson we are going to cover how to use a service to communicate between AngularJS components.",
-        "slideUrl" : "./tutorial-content/messaging-pubsub/slides.json"
+        "slideUrl" : "./tutorial-content/messaging-service/slides.json"
     },
     {
         "category" : "Communications",

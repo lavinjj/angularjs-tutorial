@@ -1,23 +1,13 @@
-The AngularJS Scope type has a set of methods to send messages along the scope hierarchy:
+We can use a service to pass data between AngularJS components. When we say service, in this context, we mean a singleton object that is created using the factory method. AngularJS has a service method, which will return a new instance of an object, which not what we want in this case.
 
-`$broadcast - used to send messages down the scope chain.`
-`$emit - used to send messages up the scope chain.`
-`$on - used to watch for particular messages that may be either broadcasted or emitted.`
+Our service needs to have a well defined interface that supports the storing and retrieving of the data we want to pass between components.
 
+In the example to the right, we have a service named 'persons' that has three methods; getPersons, getPerson and updatePerson.
 
-You call either $broadcast or $emit using the following format:
+* The 'getPersons' method returns all the person object stored in the service.
+* The 'getPerson' method takes an index and returns the person object at the given index in the persons array.
+* The 'updatePerson' method takes an index and person object and updates the person object at the index in the persons array with the person passed into the method.
 
-    $scope.$broadcast(EVENT_MESSAGE, arguments);
+In order to correctly perform the business logic associated with editing and updating a person a component needs to know the index of the person to edit or or update. This index has to be passed to our components using a different means. We will cover that in the next couple of slides.
 
-    or
-
-    $scope.emit(EVENT_MESSAGE, arguments);
-
-You listen by calling the $on method using the following format:
-
-    $scope.$on(EVENT_MESSAGE, function(event, args) {
-    ...
-    // event handling logic here
-    ...
-    });
 

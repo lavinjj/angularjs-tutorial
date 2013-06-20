@@ -1,0 +1,22 @@
+<script type="text/ng-template" id="personlist-partial.html">
+    <div class="span12" ng-controller="PersonListController">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Bio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="person in persons">
+                <td><i class="icon-edit" ng-click="edit($index)"></i></td>
+                <td>{{person.name}}</td>
+                <td>{{person.email}}</td>
+                <td>{{person.biography}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</script>

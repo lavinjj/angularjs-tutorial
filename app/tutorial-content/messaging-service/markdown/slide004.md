@@ -1,12 +1,13 @@
-You can use Scope Based Messaging to communicate between all of your AngularJS Components. However, by doing so your code will not be as great as it could be.
+In this exercise you will use a service to communicate between two controllers.
 
-First off, each component that wants to send or listen to a particular message must know about the message and what arguments to send or receive. This is called tight coupling and makes it hard for you to test and re-use code.
+The first controller will contain a list of items. When the user clicks on the edit button associated with the item, the controller should change teh Url to '/edit/index', where index is the index of the object to edit.
 
-Second, you are duplicating a lot of the same code all over your program, which means that your application will not be maintainable. If you decide to change the message due to a conflict with another library, you will have to go to each component to make the change.
+The second controller will be a detailed form. It should use the $routeParams service to retrieve the index of the object to edit and use the 'getPerson' method on persons to assign it to a local scope variable that will be bound to the input fields on the form. When the user clicks the save button the controller will update the object using the updatePerson method of the 'persons' service and chenge the Url back to the root Url, '/'.
 
-By using the publish-subscribe design pattern, we can alleviate these issues and make your code loosly coupled and easier to maintain. Below is the definition for the publish-subscribe pattern from Wikipedia:
+You will need to code the persons service that will handle storing the array or persons and provide methods for retrieving the array f persons, a single person and updating a single person.
 
-    publish–subscribe is a messaging pattern where senders of messages, called publishers, do not program the messages to be sent directly to specific receivers, called subscribers. Instead, published messages are characterized into classes, without knowledge of what, if any, subscribers there may be. Similarly, subscribers express interest in one or more classes, and only receive messages that are of interest, without knowledge of what, if any, publishers there are.
+You will also need to add a route to the app.js file that will allow the passing of the person to edit when the personedit-controller is invoked.
 
-    -- Wikipedia http://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern
+If you have problems, you can look at the hint.js file for the app, controllers and the service to get an idea how the code should be written.
 
+When done click the Run button to run the example in the window on the bottom right.
