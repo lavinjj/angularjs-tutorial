@@ -56,7 +56,7 @@ Application.Controllers.controller('editor-controller', ['$scope', '$timeout', '
         $scope.setOptionsForFileType($scope.currentFile.mode);
 
         $scope.filesUpdated = !$scope.filesUpdated;
-        Angularytics.trackEvent("View Source File", $scope.currentFile.name);
+        Angularytics.trackEvent($scope.slide.lesson, "View Source File", $scope.currentFile.name);
     };
 
     $scope.setOptionsForFileType = function (mode) {

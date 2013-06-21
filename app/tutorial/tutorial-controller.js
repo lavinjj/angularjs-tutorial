@@ -1,6 +1,6 @@
 'use strict';
 
-Application.Controllers.controller('tutorial-controller', ['$scope', '$http', '$routeParams', 'tutorial', 'tutorialNotificationChannel', function($scope, $http, $routeParams, tutorial, tutorialNotificationChannel) {
+Application.Controllers.controller('tutorial-controller', ['$scope', '$http', '$routeParams', 'tutorial', 'tutorialNotificationChannel', 'Angularytics', function($scope, $http, $routeParams, tutorial, tutorialNotificationChannel, Angularytics) {
     $scope.Title = 'AngularJS Unit Testing';
     $scope.lessons = [];
     $scope.currentPage = 0;
@@ -14,6 +14,7 @@ Application.Controllers.controller('tutorial-controller', ['$scope', '$http', '$
         if($scope.lessons && $scope.lessons.length){
             var index = parseInt($routeParams['index'], 10);
             var lesson = $scope.lessons[index];
+            Angularytics.trackEvent("Load Lesson", lesson.name, lesson.category, lesson.level);
             tutorial.getSlides(lesson.slideUrl);
         }
     };

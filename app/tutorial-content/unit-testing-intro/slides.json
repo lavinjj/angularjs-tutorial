@@ -1,5 +1,6 @@
 [
     {
+        "lesson": "Unit Testing Basics",
         "title": "AngularJS Unit Testing Intro to Jasmine",
         "markdownUrl": "tutorial-content/unit-testing-intro/markdown/slide001.md",
         "code": [

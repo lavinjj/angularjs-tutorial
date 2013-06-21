@@ -1,5 +1,6 @@
 [
     {
+        "lesson": "Scope based Messaging",
         "title": " Scope Based Messaging",
         "markdownUrl": "./tutorial-content/messaging-scope/markdown/slide001.md",
         "code": [],
@@ -10,6 +11,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Scope based Messaging",
         "title": "Exercise 1",
         "markdownUrl": "./tutorial-content/messaging-scope/markdown/slide002.md",
         "code": [
@@ -70,6 +72,7 @@
         "enableRun": true
     },
     {
+        "lesson": "Scope based Messaging",
         "title": "Exercise 2",
         "markdownUrl": "./tutorial-content/messaging-scope/markdown/slide003.md",
         "code": [

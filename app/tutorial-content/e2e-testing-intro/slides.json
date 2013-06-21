@@ -1,5 +1,6 @@
 [
     {
+        "lesson": "Unit Testing Basics",
         "title": "AngularJS E2e Testing Intro to Jasmine",
         "markdownUrl": "./tutorial-content/e2e-testing-intro/markdown/slide001.md",
         "code": [
@@ -27,6 +28,7 @@
         "enableRun": true
     },
     {
+        "lesson": "Unit Testing Basics",
         "title": "AngularJS E2e Testing Intro to Jasmine",
         "markdownUrl": "./tutorial-content/e2e-testing-intro/markdown/slide001.md",
         "code": [

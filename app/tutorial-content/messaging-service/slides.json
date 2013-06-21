@@ -1,5 +1,6 @@
 [
     {
+        "lesson": "Service based Messaging",
         "title": "Service Based Messaging",
         "markdownUrl": "./tutorial-content/messaging-service/markdown/slide001.md",
         "code": [
@@ -17,6 +18,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Service based Messaging",
         "title": "Passing Data via the Url",
         "markdownUrl": "./tutorial-content/messaging-service/markdown/slide002.md",
         "code": [
@@ -40,6 +42,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Service based Messaging",
         "title": "Invoking the Controller with the Correct Data",
         "markdownUrl": "./tutorial-content/messaging-service/markdown/slide003.md",
         "code": [
@@ -57,6 +60,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Service based Messaging",
         "title": "Exercise",
         "markdownUrl": "./tutorial-content/messaging-service/markdown/slide004.md",
         "code": [

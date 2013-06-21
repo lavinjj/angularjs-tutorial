@@ -19,7 +19,7 @@ Application.Controllers.controller('results-controller', ['$scope', 'tutorialNot
     tutorialNotificationChannel.onSlideSaved($scope, $scope.onSlideSavedHandler);
 
     $scope.runCode = function () {
-        Angularytics.trackEvent("Run Code", "Run Code");
+        Angularytics.trackEvent($scope.currentSlide.lesson, "Run Code");
         tutorialNotificationChannel.runExample();
     };
 

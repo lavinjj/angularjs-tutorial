@@ -1,5 +1,6 @@
 [
     {
+        "lesson": "Pub/Sub based Messaging",
         "title": "Using Patterns to Improve Our Code",
         "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide004.md",
         "code": [],
@@ -10,6 +11,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Pub/Sub based Messaging",
         "title": "We Need a Channel to Communicate Through",
         "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide005.md",
         "code": [
@@ -27,6 +29,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Pub/Sub based Messaging",
         "title": "Publishing a Message",
         "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide006.md",
         "code": [
@@ -44,6 +47,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Pub/Sub based Messaging",
         "title": "Subscribing to Notification Events",
         "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide007.md",
         "code": [
@@ -61,6 +65,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Pub/Sub based Messaging",
         "title": "Controller to Controller Communication",
         "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide008.md",
         "code": [
@@ -78,6 +83,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Pub/Sub based Messaging",
         "title": "Always Have Well Documented Interfaces",
         "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide009.md",
         "code": [],
@@ -88,6 +94,7 @@
         "enableRun": false
     },
     {
+        "lesson": "Pub/Sub based Messaging",
         "title": "Exercise 3",
         "markdownUrl": "./tutorial-content/messaging-pubsub/markdown/slide010.md",
         "code": [
