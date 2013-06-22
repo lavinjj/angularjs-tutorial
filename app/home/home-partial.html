@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="lesson in lessons">
-                        <td><a class="btn btn-primary" href="#/tutorial/{{$index}}"><img ng-src="{{lesson.image}}" /></a></td>
+                        <td><img class="btn-link" ng-click="startTutorial($index)" ng-src="{{lesson.image}}" /></td>
                         <td>{{lesson.name}}</td>
                         <td>{{lesson.description}}</td>
                         <td>{{lesson.category}}</td>

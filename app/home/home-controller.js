@@ -28,5 +28,9 @@ Application.Controllers.controller('home-controller', ['$scope', '$location', 'a
         });
     };
 
+    $scope.startTutorial = function(index){
+        $location.path('/tutorial/' + index);
+    };
+
     $scope.init();
 }]);

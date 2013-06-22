@@ -35,3 +35,16 @@ html, body {
     color: #999;
 }
 
+.pagination ul li > a,
+.pagination ul li > span {
+    background-color: #34495e;
+    border-color: #34495e;
+    color: #ffffff;
+}
+
+.pagination ul>.disabled>span, .pagination ul>.disabled>a, .pagination ul>.disabled>a:hover, .pagination ul>.disabled>a:focus {
+    color: #999;
+    cursor: default;
+    background-color: transparent;
+    border-color: transparent;
+}
