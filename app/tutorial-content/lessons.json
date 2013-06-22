@@ -2,6 +2,14 @@
     {
         "category" : "Core",
         "level": "Beginner",
+        "name": "Defining AngularJS Modules",
+        "image": "./tutorial-content/AngularLogo.png",
+        "description": "In this lesson you will learn how to define AngularJS modules.",
+        "slideUrl" : "./tutorial-content/core-module/slides.json"
+    },
+    {
+        "category" : "Core",
+        "level": "Beginner",
         "name": "Building a Simple Directive",
         "image": "./tutorial-content/AngularLogo.png",
         "description": "In this lesson you will learn how to write a simple directive that displays a gravatar image for an email address.",

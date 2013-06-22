@@ -1,0 +1,95 @@
+[
+    {
+        "lesson": "Defining AngularJS Modules",
+        "title": "Lesson Overview",
+        "markdownUrl": "./tutorial-content/core-module/markdown/slide001.md",
+        "code": [],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "lesson": "Defining AngularJS Modules",
+        "title": "Defining a New Module",
+        "markdownUrl": "./tutorial-content/core-module/markdown/slide002.md",
+        "code": [],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "lesson": "Defining AngularJS Modules",
+        "title": "Recalling A Previously Defined Module",
+        "markdownUrl": "./tutorial-content/core-module/markdown/slide003.md",
+        "code": [],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    },
+    {
+        "lesson": "Defining AngularJS Modules",
+        "title": "Exercise",
+        "markdownUrl": "./tutorial-content/core-module/markdown/slide004.md",
+        "code": [
+            {
+                "name": "app.js",
+                "url": "./tutorial-content/core-module/code/slide004-app.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "app.js hint",
+                "url": "./tutorial-content/core-module/code/slide004-app-hint.js",
+                "index": 2,
+                "mode": "hint-javascript"
+            },
+            {
+                "name": "app.html",
+                "url": "./tutorial-content/core-module/code/slide004-html.html",
+                "index": 1,
+                "mode": "text/html"
+            },
+            {
+                "name": "helloworldcontroller.js",
+                "url": "./tutorial-content/core-module/code/slide004-controller.js",
+                "index": 1,
+                "mode": "javascript"
+            },
+            {
+                "name": "bootstrap.js",
+                "url": "./tutorial-content/core-module/code/slide004-bootstrap.js",
+                "index": 2,
+                "mode": "javascript"
+            }
+        ],
+        "htmlTemplate": "./tutorial-content/core-module/html/starter.html",
+        "cssfiles": [
+            "lib/bootstrap/css/bootstrap.min.css",
+            "lib/bootstrap/css/bootstrap-responsive.min.css"
+        ],
+        "javascriptFiles": [
+            "lib/jquery/jquery-1.10.0.js",
+            "lib/bootstrap/js/bootstrap.js",
+            "lib/angular/angular.js"
+        ],
+        "allowAddFile": false,
+        "enableRun": true
+    },
+    {
+        "lesson": "Defining AngularJS Modules",
+        "title": "More Information",
+        "markdownUrl": "./tutorial-content/core-module/markdown/slide005.md",
+        "code": [],
+        "htmlTemplate": "",
+        "cssfiles": [],
+        "javascriptFiles": [],
+        "allowAddFile": false,
+        "enableRun": false
+    }
+]
